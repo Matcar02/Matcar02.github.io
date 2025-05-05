@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git Habits for Grads - Blog - Matteo Carucci</title>
+
+    <link rel="shortcut icon" href="../assets/images/MC_logo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../assets/css/style.css"> <!-- Link to main stylesheet -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Google Tag -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LXQLH66J4S"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-LXQLH66J4S');
+    </script>
+
+    <!-- Specific CSS for blog post elements and overrides -->
+    <style>
+        /* --- Fixes for Blog Post Content --- */
+        /* Restore bullet points for lists within the blog text */
+        .blog-post-text ul {
+          list-style: disc !important; /* Use standard bullets */
+          list-style-position: outside !important; /* Place bullets outside */
+          margin-left: 0 !important; /* Reset margin */
+          padding-left: 40px !important; /* Add indentation for bullets */
+        }
+        .blog-post-text ol { /* Style ordered lists too */
+          list-style: decimal !important;
+          list-style-position: outside !important;
+          margin-left: 0 !important;
+          padding-left: 40px !important;
+        }
+        /* Ensure list items inherit style and have correct display */
+        .blog-post-text li {
+          display: list-item !important;
+          list-style: inherit !important;
+          padding-left: 5px; /* Optional small space after bullet */
+          margin-bottom: 0.8em; /* Spacing between items */
+        }
+        /* Make links inside paragraphs and list items flow inline */
+        .blog-post-text p a,
+        .blog-post-text li a {
+          display: inline !important; /* Override global block display */
+          width: auto !important; /* Don't take full width */
+          /* Optional: Add subtle underline back for inline links */
+          /* border-bottom: 1px dotted var(--orange-yellow-crayola); */
+        }
+        /* .blog-post-text p a:hover,
+        .blog-post-text li a:hover {
+           border-bottom-style: solid;
+        } */
+        /* --- End of Fixes --- */
+
+
+        /* --- Layout Overrides for Full Width Post --- */
+        .main-content {
+            margin-left: 0;
+            width: 100%;
+            max-width: none;
+            border-radius: 0;
+            box-shadow: none;
+            border: none;
+            padding: 0;
+        }
+        .blog-post-content-wrapper {
+             max-width: 900px; /* Readability constraint */
+             margin-left: 0;
+             margin-right: 0;
+             padding: 0 clamp(20px, 5vw, 60px); /* Responsive padding */
+        }
+        .navbar { /* Adjust if needed based on main CSS */ }
+
+        /* --- General Blog Post Styling --- */
+        .blog-post-article {
+            padding-top: 80px; /* Space below navbar */
+            padding-bottom: 50px;
+        }
+        .blog-post-content { color: var(--light-gray); }
+        .blog-post-text p,
+        .blog-post-text li {
+            line-height: 1.8;
+            margin-bottom: 1.3em;
+        }
+        .blog-post-text strong {
+             color: var(--white-1);
+             font-weight: 600;
+        }
+        .blog-post-banner {
+            display: block;
+            max-width: 700px; /* Adjust image width */
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 45px;
+            border-radius: 12px;
+            overflow: hidden;
+            background-color: var(--eerie-black-2);
+            border: 1px solid var(--jet);
+            box-shadow: var(--shadow-2);
+         }
+        .blog-post-banner img {
+            display: block;
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+         .blog-post-article header .article-title {
+            text-align: left; /* Align title left */
+             margin-bottom: 1.8em;
+         }
+        .blog-post-content h3 {
+            margin-top: 2.8em;
+            margin-bottom: 1.2em;
+             color: var(--white-1);
+             border-bottom: 2px solid var(--orange-yellow-crayola);
+             padding-bottom: 10px;
+             font-size: 1.6rem;
+        }
+         .blog-post-content h4 {
+             margin-top: 2.2em;
+             margin-bottom: 1em;
+             color: var(--white-2);
+             font-weight: 600;
+             font-size: 1.25rem;
+             border-left: 3px solid var(--orange-yellow-crayola);
+             padding-left: 12px;
+         }
+         .blog-post-content a { /* General link style within post */
+             color: var(--orange-yellow-crayola);
+             text-decoration: none;
+             font-weight: 500;
+             transition: color 0.2s ease, text-decoration 0.2s ease;
+         }
+         .blog-post-content a:hover {
+             color: hsl(45, 100%, 80%);
+             text-decoration: underline;
+         }
+        .blog-post-content pre,
+        .code-block {
+            background-color: var(--onyx);
+            color: #c5c8c6;
+            padding: 20px 22px;
+            border-radius: 10px;
+            overflow-x: auto;
+            font-family: 'Fira Code', 'Source Code Pro', Consolas, monospace;
+            font-size: 0.92rem;
+            line-height: 1.7;
+            margin: 30px 0;
+            border: 1px solid var(--jet);
+            box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+        }
+        .commit-example {
+             margin: 8px 0 15px 0 !important;
+             font-size: 0.88em !important;
+             padding: 10px 15px !important;
+             box-shadow: none !important;
+             background-color: #2d2d2d !important;
+        }
+        .blog-post-content code:not(pre > code) { /* Inline code */
+            background-color: hsla(210, 4%, 18%, 0.8);
+            color: #ffcc99;
+            padding: 0.3em 0.55em;
+            border-radius: 5px;
+            font-size: 0.9em;
+            border: 1px solid var(--jet);
+            vertical-align: baseline;
+            font-family: 'Fira Code', 'Source Code Pro', Consolas, monospace;
+        }
+        .blog-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 35px 0;
+            font-size: 0.95em;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+            border: 1px solid var(--jet);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .blog-table th,
+        .blog-table td {
+            border: none;
+            border-bottom: 1px solid var(--smoky-black-3);
+            padding: 14px 18px;
+            text-align: left;
+            vertical-align: top;
+        }
+         .blog-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+        .blog-table th {
+            background: linear-gradient(to bottom, var(--eerie-black-2), var(--onyx));
+            font-weight: 600;
+            color: var(--white-1);
+            text-transform: uppercase;
+            font-size: 0.88em;
+            letter-spacing: 0.8px;
+            border-bottom: 2px solid var(--orange-yellow-crayola);
+        }
+        .blog-table tbody tr {
+            background-color: var(--eerie-black-1);
+            transition: background-color 0.2s ease;
+        }
+        .blog-table tbody tr:nth-child(even) {
+             background-color: var(--onyx);
+        }
+         .blog-table tbody tr:hover {
+             background-color: var(--eerie-black-2);
+         }
+    </style>
+
+</head>
+
+<body>
+
+    <main>
+        <!-- SIDEBAR IS REMOVED -->
+
+        <!-- Main Content Area -->
+        <div class="main-content">
+
+            <!-- NAVBAR -->
+            <nav class="navbar">
+                <ul class="navbar-list">
+                <li class="navbar-item">
+                    <a href="../index.html" class="navbar-link">Home</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="../resume.html" class="navbar-link">Resume</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="../blog.html" class="navbar-link active">Blog</a>
+                </li>
+                </ul>
+            </nav>
+
+            <!-- BLOG POST ARTICLE -->
+            <article class="blog-post-article active" data-page="blog-post">
+
+                <!-- Wrapper to constrain width and add padding -->
+                <div class="blog-post-content-wrapper">
+
+                    <header>
+                        <h2 class="h2 article-title">From Notebook Chaos to Production Calm: Git Habits for Grads</h2>
+                    </header>
+
+                    <!-- Container for styling -->
+                    <section class="blog-post-content">
+
+                        <figure class="blog-post-banner">
+                            <!-- Make sure this image exists -->
+                            <img src="../assets/images/git-meme.jpg" alt="Conceptual image representing Git version control or code structure" loading="lazy">
+                        </figure>
+
+                        <!-- Text content container -->
+                        <div class="blog-post-text">
+
+                            <h3>Preface: Why Your CS or Data Science Degree Left You Under-armed</h3>
+
+                            <p>
+                                Most universities still hand you a Jupyter notebook and call it “software engineering” or "data science", often overlooking how that work can be effectively shared, versioned, and reliably reproduced. Notebooks are fantastic for exploration and rapid prototyping, but try running a <code>git diff</code> on a <code>.ipynb</code> file – you'll find yourself deciphering a complex JSON structure, making meaningful version tracking difficult. Critical skills like robust version control with Git, writing repeatable tests, and establishing deployable project structures rarely get the spotlight they deserve in academia. Yet, these are precisely the practices that bridge the gap between classroom exercises and maintainable, production-ready code. I learned this the hard way.
+                            </p>
+
+                            <h3>The Day Two Weeks Vanished (Not Pleasant)</h3>
+
+                            <p>
+                                During an internship, I was deep in the zone, fueled by the success of a new project: a data pipeline feeding a FastAPI service. Endpoints were responsive, documentation was auto-generated via Swagger (if you're unfamiliar, check it out <a href="https://swagger.io/docs/" target="_blank" rel="noopener noreferrer">here</a> – it's incredibly useful). I kept telling myself I'd push my changes to the remote repository soon, just after tidying up a few more handlers and modules. Then, disaster struck. The laptop fan whirred violently, the screen went black, and my machine refused to boot. No recent push, no separate branch, no cloud backup. 🎬 The result? A fresh OS install and two painstaking weeks spent reconstructing my work entirely from memory.
+                            </p>
+
+                            <h3>Lesson #1: If it isn’t on a remote, it doesn’t exist.</h3>
+                            <p><em>(This title reflects the painful lesson learned above. The following points cover the essential habits *before* you push, ensuring what you push is valuable.)</em></p>
+
+                            <h4>1. Commit Like Future-You is Debugging at 2 a.m.</h4>
+                            <ul>
+                                <li><strong>One Logical Change Per Commit:</strong> Keep commits small and focused. This makes reviewing easier (for yourself and others) and reverting changes trivial if something goes wrong.</li>
+                                <li><strong>Write Clear Commit Messages:</strong> Use a consistent format. A simple, effective one is: <code><verb>: <what was changed> – <why it was changed></code>.
+                                    <pre class="code-block commit-example"><code>feat: add user authentication endpoint – secures access to profile data</code></pre>
+                                    <pre class="code-block commit-example"><code>fix: correct calculation error in reporting module – prevents negative totals</code></pre>
+                                    <pre class="code-block commit-example"><code>refactor: simplify database query logic – improves performance by 15%</code></pre>
+                                </li>
+                                <li><strong>Link to Issues/Tickets:</strong> If using a tracker like Jira or GitHub Issues, include the ID (e.g., <code>#123</code> or <code>PROJ-456</code>) in your commit message. This automatically links your code changes to the requirement or bug report.</li>
+                                <li><strong>Squash Merges (Carefully):</strong> Using squash-and-merge when completing a feature branch can keep your main branch history clean and linear. However, <strong>never</strong> squash commits *during* an active code review. The individual commits form the narrative of your development process and the review conversation.</li>
+                            </ul>
+
+                            <h4>2. Push Early, Push Often (The Cloud is Your Safety Net)</h4>
+                            <p>Treat <code>git push</code> like hitting "Save" in the cloud. Don't wait until everything is "perfect."</p>
+                            <ul>
+                                <li>Finished a small, logical piece of work? <strong>Push it!</strong></li>
+                                <li>Stepping away for lunch or a meeting? <strong>Push it!</strong></li>
+                                <li>Trying out an idea on a separate branch? <strong>Push the branch!</strong></li>
+                                <li>Fixed a tiny typo in the README? <strong>Push it!</strong> (Okay, maybe less critical, but it reinforces the habit and keeps the remote truly up-to-date).</li>
+                            </ul>
+                            <p>Pushing frequently triggers your Continuous Integration (CI) pipeline (if configured), giving you immediate feedback on tests and builds. It’s your best defense against hardware failure, accidental deletions, or the dreaded blue screen of death.</p>
+
+                            <h4>3. Tests: Annoying Until They Save Your Bacon</h4>
+                            <p>
+                               Let's be honest: writing tests can feel like a chore, especially when you're eager to build features. I used to view them as optional extras. That changed dramatically when a subtle rounding error I introduced caused an expense report line item to display as €4,200,000.00 instead of the correct €4,200.00. Cue panicked calls from the finance department, convinced we'd found a novel way to incinerate budget.
+                            </p>
+                            <ul>
+                                <li><strong>Start Small:</strong> Write at least one "happy path" unit test for critical functions. For example, assert that a calculation returns the expected result with standard inputs.</li>
+                                <li><strong>Guard the Edges:</strong> Think about potential issues. What happens with zero? Negative numbers? Very large numbers? Null inputs? Write tests for these edge cases. This often requires understanding the business context – what are realistic bounds?</li>
+                                <li><strong>Automate with CI:</strong> Integrate your tests into a CI/CD pipeline (GitHub Actions, GitLab CI, Jenkins, etc.). Configure it so that pull requests cannot be merged unless all tests pass. Green checkmarks become mandatory gatekeepers.</li>
+                            </ul>
+                            <p>Testing feels tedious right up until the moment it catches a bug like that financial reporting nightmare. Then, suddenly, it becomes the indispensable safety net you always knew you should have had.</p>
+
+                            <h4>4. Tame Project Sprawl with Structure (Cookiecutter Helps)</h4>
+                            <p>
+                                As projects grow, codebases can become tangled messes without a clear organization. A standardized folder structure brings order and makes navigation intuitive. Tools like <a href="https://cookiecutter.readthedocs.io/en/stable/" target="_blank" rel="noopener noreferrer">Cookiecutter</a>, combined with templates such as <a href="https://github.com/cookiecutter/cookiecutter-pypackage" target="_blank" rel="noopener noreferrer">cookiecutter-pypackage</a> or framework-specific ones like those for FastAPI, provide excellent starting points. A common Python service structure might look like this:
+                            </p>
+                            <pre class="code-block"><code>my_awesome_service/
+├── .github/            # CI/CD workflows (e.g., GitHub Actions)
+├── .vscode/            # VSCode settings (optional, project-specific)
+├── docs/               # Project documentation
+├── scripts/            # Utility/automation scripts (build, deploy, etc.)
+├── src/                # Main source code directory --> IMPORTANT!
+│   └── my_awesome_service/ # Actual Python package
+│       ├── api/            # API route definitions
+│       ├── core/           # Core logic, settings, configuration
+│       ├── models/         # Data models (Pydantic, SQLAlchemy, etc.)
+│       ├── services/       # Business logic layer
+│       ├── pipelines/      # Data processing pipelines (if applicable)
+│       └── __init__.py
+├── tests/              # All tests (unit, integration, etc.)
+│   ├── integration/
+│   └── unit/
+├── .gitignore          # Specifies intentionally untracked files
+├── Dockerfile          # Instructions to build a Docker container
+├── Makefile            # Common commands (setup, test, lint, run) (optional)
+├── pyproject.toml      # Modern Python project metadata & dependencies (PEP 517/518)
+└── README.md           # Project overview, setup instructions
+</code></pre>
+                            <p><strong>Why does structure matter?</strong></p>
+                             <ul>
+                                 <li><strong>Predictability:</strong> Anyone joining the project instantly knows where to find things (tests, source code, API definitions).</li>
+                                 <li><strong>Easier Onboarding:</strong> A well-defined structure, perhaps combined with a <code>Makefile</code> or helper scripts, allows new team members to set up the project and run tests quickly (e.g., <code>make setup && make test</code>).</li>
+                                 <li><strong>Tooling Integration:</strong> Standard structures work seamlessly with linters, formatters (like Black, Ruff), testing frameworks, and build tools, often configured via <code>pyproject.toml</code>. Many templates come pre-configured.</li>
+                                 <li><strong>Import Sanity:</strong> Using a `src/` layout helps prevent common Python import problems and ensures your package behaves correctly when installed.</li>
+                             </ul>
+
+                            <h4>5. Master <code>.gitignore</code>: Your Repo's Gatekeeper</h4>
+                            <p>Your Git repository should only track files essential for building and running your project – primarily source code and configuration. Everything else (generated files, environment secrets, large data, dependencies) should be explicitly ignored using a <code>.gitignore</code> file.</p>
+                            <pre class="code-block"><code># Byte-compiled files and caches
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.so
+*.swp # Vim swap files
+
+# Secrets / Environment variables
+# NEVER commit sensitive credentials!
+.env
+.env.*
+*.env
+!.env.example  # Often good to commit a template
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# IDE / Editor folders
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+nbproject/ # NetBeans
+
+# Virtual environment folders
+venv/
+.venv/
+env/
+.env/
+*_env/
+env.bak/
+venv.bak/
+
+# Build artifacts & distribution files
+dist/
+build/
+*.egg-info/
+wheels/
+*.tar.gz
+*.whl
+*.jar
+*.war
+
+# Test & Coverage artifacts
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+
+# Data files (Generally avoid in Git - use other storage)
+*.csv
+*.tsv
+*.json  # If large dataset, not small config
+*.xml   # If large dataset, not small config
+*.yaml  # If large dataset, not small config
+*.parquet
+*.hdf5
+*.h5
+*.pkl
+*.pickle
+*.joblib
+data/     # Often contains large files
+*.db
+*.sqlite
+*.sqlite3
+
+# Logs & temporary files
+*.log
+logs/
+*.tmp
+*.temp
+
+# Node dependencies (if using Node.js tools)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Python Notebook Checkpoints
+.ipynb_checkpoints/
+</code></pre>
+                            <p>
+                                 Large binary files (like datasets, models, images, videos) don't belong directly in Git. They bloat the repository, make cloning slow, and don't diff well. Need them for reproducibility?
+                            </p>
+                            <ul>
+                                 <li>Store them in dedicated object storage (AWS S3, Google Cloud Storage, Azure Blob Storage, MinIO).</li>
+                                 <li>Use tools specifically designed for versioning large files alongside code, like <a href="https://dvc.org/" target="_blank" rel="noopener noreferrer">DVC (Data Version Control)</a> or <a href="https://git-lfs.github.com/" target="_blank" rel="noopener noreferrer">Git LFS (Large File Storage)</a>. These tools store pointers in Git and manage the actual large files separately.</li>
+                            </ul>
+
+
+                            <h4>6. Quick-Start Checklist for New Grads</h4>
+                            <table class="blog-table">
+                                <thead>
+                                    <tr>
+                                        <th>Habit</th>
+                                        <th>Tooling Example</th>
+                                        <th>Payoff</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Atomic commits, clear messages</td>
+                                        <td>Git CLI discipline, commitlint hooks</td>
+                                        <td>Easy history navigation, faster reviews, simple reverts</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Push frequently to remote</td>
+                                        <td>Git remote (GitHub, GitLab, etc.), CI Server</td>
+                                        <td>Data safety net, rapid feedback loop, enables collaboration</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Test critical paths & edge cases</td>
+                                        <td>pytest, unittest, CI Integration (Actions, GitLab CI)</td>
+                                        <td>Catch bugs before deployment, increased confidence</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Use standard project structure</td>
+                                        <td>Cookiecutter templates, manual adherence</td>
+                                        <td>Faster onboarding, improved maintainability, tooling compatibility</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>.gitignore</code> non-source files</td>
+                                        <td>Well-maintained <code>.gitignore</code>, DVC/LFS/Cloud Storage</td>
+                                        <td>Lean repository, fast clones/pulls, clean diffs</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <h3>Final Word</h3>
+                            <p>
+                                Transitioning from academic projects to production code isn't about suddenly gaining years of experience overnight; it's about adopting professional <strong>habits</strong>. Commit small changes often. Push your work to the safety of a remote repository regularly. Write tests, especially for the tricky parts. Keep your repository clean and focused on source code. These practices might feel like extra effort initially, but they quickly become second nature and save enormous amounts of time and stress down the line (take it from someone who learned the hard way!).
+                            </p>
+                            <p>
+                                So, before you switch tabs or close this window, make it a habit:
+                            </p>
+                            <pre class="code-block"><code>git status # Check what you've changed
+git add . # Stage relevant changes
+git commit -m "docs: internalize lessons on production git habits" # Meaningful message!
+git push origin your-branch-name # Push to the cloud!</code></pre>
+                            <p>
+                                Your future self, potentially debugging late at night or recovering from a hardware hiccup, will thank you. 🚀
+                            </p>
+
+
+                        </div> <!-- End blog-post-text -->
+                    </section> <!-- End blog-post-content -->
+
+                </div> <!-- End blog-post-content-wrapper -->
+
+            </article> <!-- End blog-post-article -->
+
+        </div> <!-- End main-content -->
+
+    </main>
+
+    <!-- Custom JS -->
+    <script src="../assets/js/script.js"></script>
+    <!-- Ionicon -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>
