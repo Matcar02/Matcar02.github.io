@@ -2,48 +2,36 @@
 <html lang="en">
 
 <head>
-    <meta http-equiv="X-UA-Compatible" content="text/html; charset=utf-8">
+    <!-- Use UTF-8 encoding for direct emoji support -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Matteo Carucci</title>
 
-    <!--
-      - favicon
-    -->
+    <!-- Favicon -->
     <link rel="shortcut icon" href="./assets/images/MC_logo.ico" type="image/x-icon">
 
-    <!--
-      - custom css link
-    -->
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="./assets/css/style.css">
 
-    <!--
-      - google font link
-    -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <!-- Google tag (gtag.js) -->
+
+    <!-- Google Tag -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-LXQLH66J4S"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
-
         gtag('config', 'G-LXQLH66J4S');
     </script>
 </head>
 
 <body>
 
-    <!--
-      - #MAIN
-    -->
-
     <main>
-
-        <!--
-          - #SIDEBAR
-        -->
 
         <aside class="sidebar" data-sidebar>
 
@@ -55,21 +43,20 @@
 
                 <div class="info-content">
                     <h1 class="name" title="Matteo Carucci">Matteo Carucci</h1>
-
-                    <p class="title">Student and Data Professional</p>
+                    <p class="title">Data Professional and Tech Enthusiast</p>
+                    
                 </div>
 
                 <button class="info_more-btn" data-sidebar-btn>
                     <span>Show Contacts</span>
-
                     <ion-icon name="chevron-down"></ion-icon>
                 </button>
 
             </div>
 
             <div class="sidebar-info_more">
-
-                <div class="separator"></div>
+                <!-- ... rest of the sidebar-info_more content ... -->
+                 <div class="separator"></div>
 
                 <ul class="contacts-list">
 
@@ -110,66 +97,48 @@
 
                     <li class="social-item">
                         <a href="https://www.linkedin.com/in/matteo-carucci" class="social-link">
-                            <ion-icon name="MC_logo-linkedin"></ion-icon>
+                            <ion-icon name="logo-linkedin"></ion-icon> <!-- Standard Ionicon name -->
                         </a>
                     </li>
 
                     <li class="social-item">
                         <a href="https://github.com/Matcar02" class="social-link">
-                            <ion-icon name="MC_logo-github"></ion-icon>
+                            <ion-icon name="logo-github"></ion-icon> <!-- Standard Ionicon name -->
                         </a>
                     </li>
 
                 </ul>
-
             </div>
 
         </aside>
 
-
-
-
-
-        <!--
-          - #main-content
-        -->
-
+        <!-- ... rest of your main content (navbar, about section, etc.) ... -->
         <div class="main-content">
 
-            <!--
-              - #NAVBAR
-            -->
-
-            <nav class="navbar">
-
+            <!-- NAVBAR -->
+             <nav class="navbar">
                 <ul class="navbar-list">
-
-                    <li class="navbar-item">
-                        <a href="#" class="navbar-link active">About</a>
-                    </li>
-
-                    <li class="navbar-item">
-                        <a href="resume.html" class="navbar-link">Resume</a>
-                    </li>
-
-
+                  <li class="navbar-item">
+                    <a href="index.html" class="navbar-link">Home</a>
+                  </li>
+                  <li class="navbar-item">
+                    <a href="resume.html" class="navbar-link active">Resume</a>
+                  </li>
+                  <li class="navbar-item">
+                    <a href="blog.html" class="navbar-link">Blog</a>
+                  </li>
                 </ul>
+              </nav>
 
-            </nav>
-
-
-            <!--
-              - #ABOUT
-            -->
-
+            <!-- ABOUT -->
             <article class="about  active" data-page="about">
-
-                <header>
+                <!-- ... About me content ... -->
+                 <header>
                     <h2 class="h2 article-title">About me</h2>
                 </header>
 
                 <section class="about-text">
-                
+
 
                         <h3 class="h3">Who I Am in a Nutshell</h3>
                         <p>
@@ -191,7 +160,7 @@
 
                         <h3 class="h3">Personal Interests</h3>
                         <p>
-                            Outside of my professional and academic life, I love cycling and enjoy going to the gym (miserably failing to become a calisthenics beast &#128512;); I have also been playing professional and amateur football for quite a long time! <br/>
+                            Outside of my professional and academic life, I love cycling and enjoy going to the gym (miserably failing to become a calisthenics beast ); I have also been playing professional and amateur football for quite a long time! <br/>
                             As of my personal traits, I love sharing knowledge and experiences with others. I'm a strong cosmopolitan and a true believer in the power of diversity and inclusion, having lived in three different countries and speaking three languages fluently while learning a fourth one.
                         </p>
 
@@ -201,14 +170,11 @@
                         </p>
 
                         <p>
-                            Happy to have you here, let's connect and share our experiences!
+                            Happy to have you here, let's connect and share our experiences! 
+                            <a href="blog.html" style="font-weight: bold; display: inline;">Check out my blog</a> 
+                            to read more about my projects and thoughts! 😊 
                         </p>
-
                 </section>
-                
-
-                </section>
-
 
 
             </article>
@@ -217,25 +183,13 @@
 
     </main>
 
-
-
-
-
-
-    <!--
-      - custom js link
-    -->
+    <!-- Custom JS -->
     <script src="./assets/js/script.js"></script>
 
-    <!--
-      - ionicon link
-    -->
+    <!-- Ionicon -->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
 </body>
 
 </html>
-
-
-
