@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- Use IE=edge for better compatibility -->
+  <meta charset="UTF-8"> <!-- Use meta charset directly -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog - Matteo Carucci</title>
+
+  <link rel="shortcut icon" href="./assets/images/MC_logo.ico" type="image/x-icon">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LXQLH66J4S"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-LXQLH66J4S');
+  </script>
+
+  <!-- Add specific CSS for blog layout here or in style.css -->
+  <style>
+    /* Basic Example CSS - Add to style.css for better organization */
+    .blog-posts-container {
+      display: grid;
+      /* Example: 2 columns on wider screens, 1 on smaller */
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px; /* Space between blog posts */
+      margin-top: 30px;
+      padding: 0; /* Remove default list padding if any */
+      list-style: none; /* Remove bullets */
+    }
+
+    .blog-post-link {
+      text-decoration: none; /* Remove underline from link */
+      color: inherit; /* Inherit text color */
+      display: block; /* Make the link fill the grid cell */
+      border-radius: 16px; /* Match potential card styling */
+      overflow: hidden; /* Ensure image respects border-radius */
+      background: var(--eerie-black-2); /* Example background - use your theme variable */
+      box-shadow: var(--shadow-2); /* Example shadow - use your theme variable */
+      transition: var(--transition-1); /* Example transition */
+    }
+
+    .blog-post-link:hover {
+        box-shadow: var(--shadow-1); /* Example hover effect */
+        transform: translateY(-3px);
+    }
+
+    .blog-post-preview .blog-post-banner img {
+      width: 100%;
+      height: 200px; /* Fixed height for consistency */
+      object-fit: cover; /* Crop image nicely */
+      display: block; /* Remove extra space below image */
+      border-bottom: 1px solid var(--jet); /* Optional separator */
+    }
+
+     .blog-post-preview .blog-post-content {
+         padding: 20px;
+     }
+
+    .blog-post-preview .blog-post-title {
+        margin-bottom: 10px;
+        color: var(--white-2); /* Example color */
+        font-size: 1.1rem; /* Adjust as needed */
+    }
+
+    .blog-post-preview .blog-post-excerpt {
+        font-size: 0.9rem; /* Adjust as needed */
+        color: var(--light-gray); /* Example color */
+        line-height: 1.5;
+    }
+    /* Add more styles as needed for responsiveness, date, etc. */
+  </style>
+</head>
+
+<body>
+
+  <main>
+    <!-- Sidebar -->
+    <aside class="sidebar" data-sidebar>
+      <!-- REMOVED THE BUTTON and sidebar-info_more div -->
+      <!-- The sidebar now only shows the static info -->
+      <div class="sidebar-info">
+        <figure class="avatar-box">
+          <img src="./assets/images/profile_picture_1.jpg" alt="Matteo Carucci" width="80">
+        </figure>
+        <div class="info-content">
+          <h1 class="name" title="Matteo Carucci">My Personal Blog</h1>
+          <p class="title">Data Professional and Tech Enthusiast</p>
+        </div>
+        <!-- "Show Contacts" button and the expandable section below are removed -->
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Navbar -->
+      <nav class="navbar">
+        <ul class="navbar-list">
+          <li class="navbar-item">
+            <a href="index.html" class="navbar-link">Home</a>
+          </li>
+          <li class="navbar-item">
+            <a href="resume.html" class="navbar-link">Resume</a>
+          </li>
+          <li class="navbar-item">
+            <!-- Make sure this link points to blog.html now -->
+            <a href="blog.html" class="navbar-link active">Blog</a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Blog Page Content -->
+      <!-- Use data-page="blog" if your script relies on it -->
+      <article class="blog active" data-page="blog">
+        <header>
+          <h2 class="h2 article-title">Blog</h2>
+        </header>
+
+        <!-- Introductory text -->
+        <section class="about-text" style="margin-bottom: 30px;"> <!-- Added margin -->
+          <p>Welcome to my blog! Here I share thoughts and experiences in tech, data, and more! Stay tuned😊.</p>
+        </section>
+
+        <!-- Container for Blog Post Previews -->
+        <section class="blog-posts-container">
+
+          <!-- Blog Post 1 -->
+          <a href="blog-posts/first-post.html" class="blog-post-link">
+            <article class="blog-post-preview">
+              <figure class="blog-post-banner">
+                <!-- Make sure this image exists! -->
+                <img src="./assets/images/blog/rag-banner.jpg" alt="Abstract representation of RAG concept" loading="lazy">
+              </figure>
+              <div class="blog-post-content">
+                <h3 class="h3 blog-post-title">Exploring Retrieval-Augmented Generation (RAG)</h3>
+                <p class="blog-post-excerpt">A dive into how RAG enhances Large Language Models by grounding them in external knowledge sources, reducing hallucinations.</p>
+              </div>
+            </article>
+          </a>
+
+          <!-- Blog Post 2 -->
+          <a href="blog-posts/second-post.html" class="blog-post-link">
+             <article class="blog-post-preview">
+               <figure class="blog-post-banner">
+                 <!-- Make sure this image exists! -->
+                 <img src="./assets/images/blog/analytics-banner.jpg" alt="Dashboard showing product analytics charts" loading="lazy">
+               </figure>
+               <div class="blog-post-content">
+                 <h3 class="h3 blog-post-title">📊 Lessons Learned in Product Analytics</h3>
+                 <p class="blog-post-excerpt">Key takeaways and insights gained from working with vast amounts of product usage data to drive decisions.</p>
+                 <!-- Optional: <span class="blog-post-date">October 15, 2023</span> -->
+               </div>
+             </article>
+           </a>
+
+           <!-- Add More Blog Posts Here -->
+           <!-- To add a new post:
+                1. Create the HTML file (e.g., blog-posts/third-post.html).
+                2. Prepare a banner image (e.g., ./assets/images/blog/third-post-banner.jpg).
+                3. Copy one of the <a href...>...</a> blocks above.
+                4. Update the href attribute, img src, img alt, title, and excerpt.
+           -->
+
+        </section> <!-- End blog-posts-container -->
+
+      </article> <!-- End blog article -->
+    </div> <!-- End main-content -->
+  </main>
+
+  <!-- Your existing JS -->
+  <script src="./assets/js/script.js"></script>
+  <!-- Ionicon scripts -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+</html>
