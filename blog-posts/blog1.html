@@ -61,12 +61,12 @@
             border: none;
             padding: 0;
         }
-        /* Center the content block */
+        /* Left-align the content block instead of centering */
         .blog-post-content-wrapper {
              max-width: 900px; /* Readability constraint */
-             margin-left: auto;  /* Center */
-             margin-right: auto; /* Center */
-             padding: 0 clamp(20px, 4vw, 40px); /* Responsive padding */
+             margin-left: 0;  /* Left align */
+             margin-right: 0; /* Left align */
+             padding: 0 clamp(20px, 5vw, 60px); /* Responsive padding */
         }
         .navbar { /* Adjust if needed based on main CSS */ }
 
@@ -108,11 +108,11 @@
             height: auto;
             object-fit: cover;
         }
-        /* Center the main title */
+        /* Left-align the main title instead of centering */
          .blog-post-article header .article-title {
-            text-align: center;
+            text-align: left;
             margin-bottom: 1.8em;
-            padding: 0 20px;
+            padding: 0;
          }
         .blog-post-content h3 {
             margin-top: 2.8em;
@@ -286,7 +286,7 @@
                             <h3>Preface: Why Your CS or Data Science Degree Left You Under-armed</h3>
 
                             <p>
-                                Most universities still hand you a Jupyter notebook and call it “software engineering” or "data science", often overlooking how that work can be effectively shared, versioned, and reliably reproduced. Notebooks are fantastic for exploration and rapid prototyping, but try running a <code>git diff</code> on a <code>.ipynb</code> file – you'll find yourself deciphering a complex JSON structure, making meaningful version tracking difficult. Critical skills like robust version control with Git, writing repeatable tests, and establishing deployable project structures rarely get the spotlight they deserve in academia. Yet, these are precisely the practices that bridge the gap between classroom exercises and maintainable, production-ready code. I learned this the hard way.
+                                Most universities still hand you a Jupyter notebook and call it "software engineering" or "data science", often overlooking how that work can be effectively shared, versioned, and reliably reproduced. Notebooks are fantastic for exploration and rapid prototyping, but try running a <code>git diff</code> on a <code>.ipynb</code> file – you'll find yourself deciphering a complex JSON structure, making meaningful version tracking difficult. Critical skills like robust version control with Git, writing repeatable tests, and establishing deployable project structures rarely get the spotlight they deserve in academia. Yet, these are precisely the practices that bridge the gap between classroom exercises and maintainable, production-ready code. I learned this the hard way.
                             </p>
 
                             <h3>The Day Two Weeks Vanished (Not Pleasant)</h3>
@@ -295,7 +295,7 @@
                                 During an internship, I was deep in the zone, fueled by the success of a new project: a data pipeline feeding a FastAPI service. Endpoints were responsive, documentation was auto-generated via Swagger (if you're unfamiliar, check it out <a href="https://swagger.io/docs/" target="_blank" rel="noopener noreferrer">here</a> – it's incredibly useful). I kept telling myself I'd push my changes to the remote repository soon, just after tidying up a few more handlers and modules. Then, disaster struck. The laptop fan whirred violently, the screen went black, and my machine refused to boot. No recent push, no separate branch, no cloud backup. 🎬 The result? A fresh OS install and two painstaking weeks spent reconstructing my work entirely from memory.
                             </p>
 
-                            <h3>Lesson #1: If It Isn’t On a Remote, It Doesn’t Exist.</h3>
+                            <h3>Lesson #1: If It Isn't On a Remote, It Doesn't Exist.</h3>
                             <p><em>(This title reflects the painful lesson learned above. The following points cover the essential habits *before* you push, ensuring what you push is valuable.)</em></p>
 
                             <h4>1. Commit Like Future-You is Debugging at 2 a.m.</h4>
@@ -318,7 +318,7 @@
                                 <li>Trying out an idea on a separate branch? <strong>Push the branch!</strong></li>
                                 <li>Fixed a tiny typo in the README? <strong>Push it!</strong> (Okay, maybe less critical, but it reinforces the habit and keeps the remote truly up-to-date).</li>
                             </ul>
-                            <p>Pushing frequently triggers your Continuous Integration (CI) pipeline (if configured), giving you immediate feedback on tests and builds. It’s your best defense against hardware failure, accidental deletions, or the dreaded blue screen of death.</p>
+                            <p>Pushing frequently triggers your Continuous Integration (CI) pipeline (if configured), giving you immediate feedback on tests and builds. It's your best defense against hardware failure, accidental deletions, or the dreaded blue screen of death.</p>
 
                             <h4>3. Branch Out: The Superpower of Parallel Universes (aka Branching)</h4>
                             <p>
