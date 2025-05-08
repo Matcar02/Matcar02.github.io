@@ -25,38 +25,29 @@
     <!-- Specific CSS for blog post elements and overrides -->
     <style>
         /* --- Fixes for Blog Post Content --- */
-        /* Restore bullet points for lists within the blog text */
         .blog-post-text ul {
-          list-style: disc !important; /* Use standard bullets */
-          list-style-position: outside !important; /* Place bullets outside */
-          margin-left: 0 !important; /* Reset margin */
-          padding-left: 40px !important; /* Add indentation for bullets */
+          list-style: disc !important;
+          list-style-position: outside !important;
+          margin-left: 0 !important;
+          padding-left: 40px !important;
         }
-        .blog-post-text ol { /* Style ordered lists too */
+        .blog-post-text ol {
           list-style: decimal !important;
           list-style-position: outside !important;
           margin-left: 0 !important;
           padding-left: 40px !important;
         }
-        /* Ensure list items inherit style and have correct display */
         .blog-post-text li {
           display: list-item !important;
           list-style: inherit !important;
-          padding-left: 5px; /* Optional small space after bullet */
-          margin-bottom: 0.8em; /* Spacing between items */
+          padding-left: 5px;
+          margin-bottom: 0.8em;
         }
-        /* Make links inside paragraphs and list items flow inline */
         .blog-post-text p a,
         .blog-post-text li a {
-          display: inline !important; /* Override global block display */
-          width: auto !important; /* Don't take full width */
-          /* Optional: Add subtle underline back for inline links */
-          /* border-bottom: 1px dotted var(--orange-yellow-crayola); */
+          display: inline !important; /* Allow links to flow inline */
+          width: auto !important;
         }
-        /* .blog-post-text p a:hover,
-        .blog-post-text li a:hover {
-           border-bottom-style: solid;
-        } */
         /* --- End of Fixes --- */
 
 
@@ -70,11 +61,12 @@
             border: none;
             padding: 0;
         }
+        /* Center the content block */
         .blog-post-content-wrapper {
              max-width: 900px; /* Readability constraint */
-             margin-left: 0;
-             margin-right: 0;
-             padding: 0 clamp(20px, 5vw, 60px); /* Responsive padding */
+             margin-left: auto;  /* Center */
+             margin-right: auto; /* Center */
+             padding: 0 clamp(20px, 4vw, 40px); /* Responsive padding */
         }
         .navbar { /* Adjust if needed based on main CSS */ }
 
@@ -87,7 +79,12 @@
         .blog-post-text p,
         .blog-post-text li {
             line-height: 1.8;
-            margin-bottom: 1.3em;
+        }
+        .blog-post-text p {
+             margin-bottom: 1.3em;
+        }
+        .blog-post-text ul, .blog-post-text ol {
+             margin-bottom: 1.3em;
         }
         .blog-post-text strong {
              color: var(--white-1);
@@ -111,9 +108,11 @@
             height: auto;
             object-fit: cover;
         }
+        /* Center the main title */
          .blog-post-article header .article-title {
-            text-align: left; /* Align title left */
-             margin-bottom: 1.8em;
+            text-align: center;
+            margin-bottom: 1.8em;
+            padding: 0 20px;
          }
         .blog-post-content h3 {
             margin-top: 2.8em;
@@ -132,7 +131,17 @@
              border-left: 3px solid var(--orange-yellow-crayola);
              padding-left: 12px;
          }
-         .blog-post-content a { /* General link style within post */
+         /* NEW: Style for h5 sub-subheadings */
+         .blog-post-text h5 {
+            font-size: 1.15rem; /* Size between p and h4 */
+            font-weight: 600;   /* Bold */
+            color: var(--white-1); /* Bright white */
+            margin-top: 1.8em;  /* Space above */
+            margin-bottom: 0.8em; /* Space below */
+            text-transform: none; /* Override capitalize if needed */
+         }
+         /* General link styles */
+         .blog-post-content a {
              color: var(--orange-yellow-crayola);
              text-decoration: none;
              font-weight: 500;
@@ -142,6 +151,17 @@
              color: hsl(45, 100%, 80%);
              text-decoration: underline;
          }
+         /* Specific underline for inline links */
+        .blog-post-text p a,
+        .blog-post-text li a {
+             border-bottom: 1px dotted var(--orange-yellow-crayola);
+        }
+        .blog-post-text p a:hover,
+        .blog-post-text li a:hover {
+             border-bottom-style: solid;
+        }
+
+        /* Code block styles */
         .blog-post-content pre,
         .code-block {
             background-color: var(--onyx);
@@ -173,6 +193,7 @@
             vertical-align: baseline;
             font-family: 'Fira Code', 'Source Code Pro', Consolas, monospace;
         }
+        /* Table styles */
         .blog-table {
             width: 100%;
             border-collapse: separate;
@@ -244,7 +265,7 @@
             <!-- BLOG POST ARTICLE -->
             <article class="blog-post-article active" data-page="blog-post">
 
-                <!-- Wrapper to constrain width and add padding -->
+                <!-- Wrapper to constrain width and center content -->
                 <div class="blog-post-content-wrapper">
 
                     <header>
@@ -299,50 +320,94 @@
                             </ul>
                             <p>Pushing frequently triggers your Continuous Integration (CI) pipeline (if configured), giving you immediate feedback on tests and builds. It’s your best defense against hardware failure, accidental deletions, or the dreaded blue screen of death.</p>
 
-                            <h4>3. Tests: Annoying Until They Save Your Bacon</h4>
+                            <h4>3. Branch Out: The Superpower of Parallel Universes (aka Branching)</h4>
                             <p>
-                               Let's be honest: writing tests can feel like a chore, especially when you're eager to build features. I used to view them as optional extras. That changed dramatically when a subtle rounding error I introduced caused an expense report line item to display as €4,200,000.00 instead of the correct €4,200.00. Cue panicked calls from the finance department, convinced we'd found a novel way to incinerate budget.
+                                Imagine you want to try a new idea, fix a bug, or add a feature. If you do this directly on your main codebase (<code>main</code> or <code>master</code>), and something goes wrong, untangling it can be a nightmare. This is where Git branches shine – they are like creating a parallel universe for your code.
                             </p>
+                            <h5>Why Branch?</h5>
                             <ul>
-                                <li><strong>Start Small:</strong> Write at least one "happy path" unit test for critical functions. For example, assert that a calculation returns the expected result with standard inputs.</li>
-                                <li><strong>Guard the Edges:</strong> Think about potential issues. What happens with zero? Negative numbers? Very large numbers? Null inputs? Write tests for these edge cases. This often requires understanding the business context – what are realistic bounds?</li>
-                                <li><strong>Automate with CI:</strong> Integrate your tests into a CI/CD pipeline (GitHub Actions, GitLab CI, Jenkins, etc.). Configure it so that pull requests cannot be merged unless all tests pass. Green checkmarks become mandatory gatekeepers.</li>
+                                <li><strong>Isolation:</strong> Work on features or fixes without affecting the stable main codebase. If your experiment fails, you just discard the branch – no harm done to main.</li>
+                                <li><strong>Collaboration:</strong> Multiple people can work on different features simultaneously on their own branches.</li>
+                                <li><strong>Clear History:</strong> When a feature is complete, its branch can be merged back, often through a Pull/Merge Request, creating a clean, reviewable history point.</li>
+                                <li><strong>Experimentation:</strong> Want to try a risky refactor or a completely new approach? Do it on a branch!</li>
                             </ul>
-                            <p>Testing feels tedious right up until the moment it catches a bug like that financial reporting nightmare. Then, suddenly, it becomes the indispensable safety net you always knew you should have had.</p>
+                            <h5>Common Branching Workflow:</h5>
+                            <ol>
+                                <li><strong>Stay Updated:</strong> Before starting new work, make sure your local main branch is up-to-date with the remote:
+                                    <pre class="code-block"><code>git checkout main
+git pull origin main</code></pre>
+                                </li>
+                                <li><strong>Create & Switch:</strong> Create a new branch for your task (e.g., <code>feature/user-login</code> or <code>bugfix/payment-error</code>):
+                                    <pre class="code-block"><code>git checkout -b feature/user-login
 
-                            <h4>4. Tame Project Sprawl with Structure (Cookiecutter Helps)</h4>
+# This is a shortcut for:
+# git branch feature/user-login
+# git checkout feature/user-login
+
+# Or using the newer 'switch' command:
+# git switch -c feature/user-login</code></pre>
+                                </li>
+                                <li><strong>Work & Commit:</strong> Make your changes, commit them (following Lesson #1!) to your feature branch.</li>
+                                <li><strong>Push Your Branch:</strong> Regularly push your branch to the remote (following Lesson #2!):
+                                    <pre class="code-block"><code>git push origin feature/user-login</code></pre>
+                                </li>
+                                <li><strong>Iterate:</strong> Continue working, committing, and pushing to your branch.</li>
+                                <li><strong>Merge (Often via Pull/Merge Request):</strong> Once your feature is complete and reviewed (if on a team), it gets merged back into the main branch.</li>
+                            </ol>
                             <p>
-                                As projects grow, codebases can become tangled messes without a clear organization. A standardized folder structure brings order and makes navigation intuitive. Tools like <a href="https://cookiecutter.readthedocs.io/en/stable/" target="_blank" rel="noopener noreferrer">Cookiecutter</a>, combined with templates such as <a href="https://github.com/audreyfeldroy/cookiecutter-pypackage" target="_blank" rel="noopener noreferrer">cookiecutter-pypackage</a> or framework-specific ones like those for FastAPI, provide excellent starting points. A common Python service structure might look like this:
+                                Branches are cheap and easy in Git. Don't be afraid to use them for everything – even a tiny change is often best done on a branch. This habit will save you countless headaches and make collaboration a breeze.
                             </p>
-                            <pre class="code-block"><code>my_awesome_service/
-├── .github/            # CI/CD workflows (e.g., GitHub Actions)
-├── .vscode/            # VSCode settings (optional, project-specific)
-├── docs/               # Project documentation
-├── scripts/            # Utility/automation scripts (build, deploy, etc.)
-├── src/                # Main source code directory --> IMPORTANT!
-│   └── my_awesome_service/ # Actual Python package
-│       ├── api/            # API route definitions
-│       ├── core/           # Core logic, settings, configuration
-│       ├── models/         # Data models (Pydantic, SQLAlchemy, etc.)
-│       ├── services/       # Business logic layer
-│       ├── pipelines/      # Data processing pipelines (if applicable)
-│       └── __init__.py
-├── tests/              # All tests (unit, integration, etc.)
-│   ├── integration/
-│   └── unit/
-├── .gitignore          # Specifies intentionally untracked files
-├── Dockerfile          # Instructions to build a Docker container
-├── Makefile            # Common commands (setup, test, lint, run) (optional)
-├── pyproject.toml      # Modern Python project metadata & dependencies (PEP 517/518)
-└── README.md           # Project overview, setup instructions
-</code></pre>
-                            <p><strong>Why does structure matter?</strong></p>
-                             <ul>
-                                 <li><strong>Predictability:</strong> Anyone joining the project instantly knows where to find things (tests, source code, API definitions).</li>
-                                 <li><strong>Easier Onboarding:</strong> A well-defined structure, perhaps combined with a <code>Makefile</code> or helper scripts, allows new team members to set up the project and run tests quickly (e.g., <code>make setup && make test</code>).</li>
-                                 <li><strong>Tooling Integration:</strong> Standard structures work seamlessly with linters, formatters (like Black, Ruff), testing frameworks, and build tools, often configured via <code>pyproject.toml</code>. Many templates come pre-configured.</li>
-                                 <li><strong>Import Sanity:</strong> Using a `src/` layout helps prevent common Python import problems and ensures your package behaves correctly when installed.</li>
-                             </ul>
+
+                            <h4>4. The Inevitable Merge: Understanding and Resolving Conflicts</h4>
+                            <p>
+                                So, you've been working diligently on your feature branch, and <code>main</code> has also seen some action. Now it's time to bring your changes back into <code>main</code>. This is done via a <code>git merge</code>. Most of the time, Git is smart enough to combine the changes automatically. But sometimes, Git gets confused – this is a merge conflict.
+                            </p>
+                            <h5>What is a Merge Conflict?</h5>
+                            <p>A merge conflict occurs when Git can't automatically resolve differences in code between two branches that are being merged. This typically happens when the same lines of code were changed in different ways on both branches since they diverged.</p>
+                            <h5>Don't Panic! Conflicts are Normal</h5>
+                            <p>Every developer encounters merge conflicts. The key is to understand how to resolve them calmly.</p>
+                            <h5>The Conflict Resolution Dance:</h5>
+                            <ol>
+                                <li><strong>Initiate the Merge:</strong> First, ensure your current branch is the one you want to merge into (e.g., <code>main</code>), and it's up-to-date. Then, merge your feature branch:
+                                    <pre class="code-block"><code>git checkout main
+git pull origin main # Ensure main is up-to-date
+git merge feature/user-login</code></pre>
+                                </li>
+                                <li><strong>Identify Conflicts:</strong> If there are conflicts, Git will tell you:
+                                    <pre class="code-block"><code>Auto-merging src/my_awesome_service/api/users.py
+CONFLICT (content): Merge conflict in src/my_awesome_service/api/users.py
+Automatic merge failed; fix conflicts and then commit the result.</code></pre>
+                                    <code>git status</code> will also show you the unmerged paths.
+                                </li>
+                                <li><strong>Open the Conflicted File(s):</strong> Inside the file(s) Git flagged, you'll see markers like this:
+                                    <pre class="code-block"><code><<<<<<< HEAD
+# Code from your current branch (e.g., main)
+def get_user_profile(user_id: int):
+=======
+# Code from the branch being merged (e.g., feature/user-login)
+def retrieve_user_profile_details(user_id: int, include_email: bool = False):
+>>>>>>> feature/user-login</code></pre>
+                                </li>
+                                <li><strong>Resolve the Conflict:</strong> This is the human part. You need to:
+                                    <ul>
+                                        <li>Look at the changes between <code><<<<<<< HEAD</code> and <code>=======</code> (what's currently in <code>main</code>).</li>
+                                        <li>Look at the changes between <code>=======</code> and <code>>>>>>>> your-branch-name</code> (what's in your feature branch).</li>
+                                        <li>Decide what the code should look like. This might mean keeping one version, the other, or a combination of both.</li>
+                                        <li><strong>Delete the Git markers</strong> (<code><<<<<<<</code>, <code>=======</code>, <code>>>>>>>></code>) after you've made your edits.</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Stage the Resolved File:</strong> Once you're happy with the merged code in the file:
+                                    <pre class="code-block"><code>git add src/my_awesome_service/api/users.py</code></pre>
+                                </li>
+                                <li><strong>Commit the Merge:</strong> After resolving all conflicts and staging all conflicted files:
+                                    <pre class="code-block"><code>git commit</code></pre>
+                                    Git will often pre-populate a commit message like "Merge branch 'feature/user-login'". You can usually just save and close this message. If you initiated the merge via <code>git pull</code>, you might just need to <code>git add</code> and <code>git commit</code> (or <code>git rebase --continue</code> if you pulled with rebase).
+                                </li>
+                            </ol>
+                            <h5>Tools Can Help:</h5>
+                            <p>Many IDEs (like VS Code) have built-in merge conflict resolution tools that provide a side-by-side view, making it easier to see the differences and choose which changes to accept.</p>
+                            <p>Understanding branching and how to handle merge conflicts are fundamental Git skills. Mastering them will make you a more confident and effective developer, especially when working in a team.</p>
+
 
                             <h4>5. Master <code>.gitignore</code>: Your Repo's Gatekeeper</h4>
                             <p>Your Git repository should only track files essential for building and running your project – primarily source code and configuration. Everything else (generated files, environment secrets, large data, dependencies) should be explicitly ignored using a <code>.gitignore</code> file.</p>
@@ -458,21 +523,21 @@ yarn-error.log*
                                         <td>Git CLI discipline, commitlint hooks</td>
                                         <td>Easy history navigation, faster reviews, simple reverts</td>
                                     </tr>
-                                    <tr>
-                                        <td>Push frequently to remote</td>
-                                        <td>Git remote (GitHub, GitLab, etc.), CI Server</td>
-                                        <td>Data safety net, rapid feedback loop, enables collaboration</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Test critical paths & edge cases</td>
-                                        <td>pytest, unittest, CI Integration (Actions, GitLab CI)</td>
-                                        <td>Catch bugs before deployment, increased confidence</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Use standard project structure</td>
-                                        <td>Cookiecutter templates, manual adherence</td>
-                                        <td>Faster onboarding, improved maintainability, tooling compatibility</td>
-                                    </tr>
+                                     <tr>
+                                         <td>Push frequently to remote</td>
+                                         <td>Git remote (GitHub, GitLab, etc.), CI Server</td>
+                                         <td>Data safety net, rapid feedback loop, enables collaboration</td>
+                                     </tr>
+                                     <tr>
+                                        <td>Use branches for all work</td>
+                                        <td><code>git checkout -b</code>, Pull/Merge Requests</td>
+                                        <td>Isolation, experimentation safety, cleaner main history</td>
+                                     </tr>
+                                     <tr>
+                                        <td>Handle merge conflicts calmly</td>
+                                        <td>IDE merge tools, <code>git status</code>, manual editing</td>
+                                        <td>Integrate work smoothly, avoid losing changes</td>
+                                     </tr>
                                     <tr>
                                         <td><code>.gitignore</code> non-source files</td>
                                         <td>Well-maintained <code>.gitignore</code>, DVC/LFS/Cloud Storage</td>
@@ -483,7 +548,7 @@ yarn-error.log*
 
                             <h3>Final Word</h3>
                             <p>
-                                Transitioning from academic projects to production code isn't about suddenly gaining years of experience overnight; it's about adopting professional <strong>habits</strong>. Commit small changes often. Push your work to the safety of a remote repository regularly. Write tests, especially for the tricky parts. Keep your repository clean and focused on source code. These practices might feel like extra effort initially, but they quickly become second nature and save enormous amounts of time and stress down the line (take it from someone who learned the hard way!).
+                                Transitioning from academic projects to production code isn't about suddenly gaining years of experience overnight; it's about adopting professional <strong>habits</strong>. Commit small changes often. Push your work to the safety of a remote repository regularly. Branch out for every task. Learn to merge confidently. Keep your repository clean and focused on source code. These practices might feel like extra effort initially, but they quickly become second nature and save enormous amounts of time and stress down the line (take it from someone who learned the hard way!).
                             </p>
                             <p>
                                 So, before you switch tabs or close this window, make it a habit:
@@ -495,7 +560,6 @@ git push origin your-branch-name # Push to the cloud!</code></pre>
                             <p>
                                 Your future self, potentially debugging late at night or recovering from a hardware hiccup, will thank you. 🚀
                             </p>
-
 
                         </div> <!-- End blog-post-text -->
                     </section> <!-- End blog-post-content -->
