@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Gentle Intro to Main Data Storage and Processing Concepts</title>
+
+    <link rel="shortcut icon" href="../assets/images/MC_logo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../assets/css/style.css"> <!-- Link to main stylesheet -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Google Tag -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LXQLH66J4S"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-LXQLH66J4S');
+    </script>
+
+    <!-- Specific CSS for blog post elements and overrides -->
+    <style>
+      /* --- Fixes for Blog Post Content --- */
+      .blog-post-text ul {
+        list-style: disc !important;
+        list-style-position: outside !important;
+        margin-left: 0 !important;
+        padding-left: 40px !important;
+      }
+      .blog-post-text ol {
+        list-style: decimal !important;
+        list-style-position: outside !important;
+        margin-left: 0 !important;
+        padding-left: 40px !important;
+      }
+      .blog-post-text li {
+        display: list-item !important;
+        list-style: inherit !important;
+        padding-left: 5px;
+        margin-bottom: 0.8em;
+      }
+      .blog-post-text p a,
+      .blog-post-text li a {
+        display: inline !important;
+        width: auto !important;
+      }
+      /* --- End of Fixes --- */
+
+      /* --- Layout Overrides for Full Width Post --- */
+      .main-content {
+        margin-left: 0;
+        width: 100%;
+        max-width: none;
+        border-radius: 0;
+        box-shadow: none;
+        border: none;
+        padding: 0;
+      }
+      .blog-post-content-wrapper {
+        max-width: 900px;
+        margin-left: 0;
+        margin-right: 0;
+        padding: 0 clamp(20px, 5vw, 60px);
+      }
+      .navbar { }
+
+      /* --- General Blog Post Styling --- */
+      .blog-post-article {
+        padding-top: 80px;
+        padding-bottom: 50px;
+      }
+      .blog-post-content { color: var(--light-gray); }
+      .blog-post-text p,
+      .blog-post-text li {
+        line-height: 1.8;
+      }
+      .blog-post-text p {
+        margin-bottom: 1.3em;
+      }
+      .blog-post-text ul, .blog-post-text ol {
+        margin-bottom: 1.3em;
+      }
+      .blog-post-text strong {
+        color: var(--white-1);
+        font-weight: 600;
+      }
+      .blog-post-banner {
+        display: block;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 45px;
+        border-radius: 12px;
+        overflow: hidden;
+        background-color: var(--eerie-black-2);
+        border: 1px solid var(--jet);
+        box-shadow: var(--shadow-2);
+      }
+      .blog-post-banner img {
+        display: block;
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+      }
+      .blog-post-article header .article-title {
+        text-align: left;
+        margin-bottom: 1.8em;
+        padding: 0;
+      }
+      .blog-post-content h3 {
+        margin-top: 2.8em;
+        margin-bottom: 1.2em;
+        color: var(--white-1);
+        border-bottom: 2px solid var(--orange-yellow-crayola);
+        padding-bottom: 10px;
+        font-size: 1.6rem;
+      }
+      .blog-post-content h4 {
+        margin-top: 2.2em;
+        margin-bottom: 1em;
+        color: var(--white-2);
+        font-weight: 600;
+        font-size: 1.25rem;
+        border-left: 3px solid var(--orange-yellow-crayola);
+        padding-left: 12px;
+      }
+      .blog-post-text h5 {
+        font-size: 1.15rem;
+        font-weight: 600;
+        color: var(--white-1);
+        margin-top: 1.8em;
+        margin-bottom: 0.8em;
+        text-transform: none;
+      }
+      .blog-post-content a {
+        color: var(--orange-yellow-crayola);
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.2s ease, text-decoration 0.2s ease;
+      }
+      .blog-post-content a:hover {
+        color: hsl(45, 100%, 80%);
+        text-decoration: underline;
+      }
+      .blog-post-text p a,
+      .blog-post-text li a {
+        border-bottom: 1px dotted var(--orange-yellow-crayola);
+      }
+      .blog-post-text p a:hover,
+      .blog-post-text li a:hover {
+        border-bottom-style: solid;
+      }
+
+      .blog-post-content pre,
+      .code-block {
+        background-color: var(--onyx);
+        color: #c5c8c6;
+        padding: 20px 22px;
+        border-radius: 10px;
+        overflow-x: auto;
+        font-family: 'Fira Code', 'Source Code Pro', Consolas, monospace;
+        font-size: 0.92rem;
+        line-height: 1.7;
+        margin: 30px 0;
+        border: 1px solid var(--jet);
+        box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+      }
+      .commit-example {
+        margin: 8px 0 15px 0 !important;
+        font-size: 0.88em !important;
+        padding: 10px 15px !important;
+        box-shadow: none !important;
+        background-color: #2d2d2d !important;
+      }
+      .blog-post-content code:not(pre > code) {
+        background-color: hsla(210, 4%, 18%, 0.8);
+        color: #ffcc99;
+        padding: 0.3em 0.55em;
+        border-radius: 5px;
+        font-size: 0.9em;
+        border: 1px solid var(--jet);
+        vertical-align: baseline;
+        font-family: 'Fira Code', 'Source Code Pro', Consolas, monospace;
+      }
+      .blog-table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        margin: 35px 0;
+        font-size: 0.95em;
+        box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+        border: 1px solid var(--jet);
+        border-radius: 10px;
+        overflow: hidden;
+      }
+      .blog-table th,
+      .blog-table td {
+        border: none;
+        border-bottom: 1px solid var(--smoky-black-3);
+        padding: 14px 18px;
+        text-align: left;
+        vertical-align: top;
+      }
+      .blog-table tbody tr:last-child td {
+        border-bottom: none;
+      }
+      .blog-table th {
+        background: linear-gradient(to bottom, var(--eerie-black-2), var(--onyx));
+        font-weight: 600;
+        color: var(--white-1);
+        text-transform: uppercase;
+        font-size: 0.88em;
+        letter-spacing: 0.8px;
+        border-bottom: 2px solid var(--orange-yellow-crayola);
+      }
+      .blog-table tbody tr {
+        background-color: var(--eerie-black-1);
+        transition: background-color 0.2s ease;
+      }
+      .blog-table tbody tr:nth-child(even) {
+        background-color: var(--onyx);
+      }
+      .blog-table tbody tr:hover {
+        background-color: var(--eerie-black-2);
+      }
+    </style>
+
+  </head>
+
+  <body>
+
+    <main>
+      <div class="main-content">
+
+        <nav class="navbar">
+          <ul class="navbar-list">
+            <li class="navbar-item"><a href="../index.html" class="navbar-link">Home</a></li>
+            <li class="navbar-item"><a href="../resume.html" class="navbar-link">Resume</a></li>
+            <li class="navbar-item"><a href="../blog.html" class="navbar-link active">Blog</a></li>
+          </ul>
+        </nav>
+
+        <article class="blog-post-article active" data-page="blog-post">
+          <div class="blog-post-content-wrapper">
+
+            <header>
+              <h2 class="h2 article-title">A Gentle Intro to Main Data Storage and Processing Concepts</h2>
+            </header>
+
+            <section class="blog-post-content">
+
+              <figure class="blog-post-banner">
+                <img src="../assets/images/data_pipeline_patterns.png" alt="Illustration for data storage architectures and ingestion patterns" loading="lazy">
+              </figure>
+
+              <div class="blog-post-text">
+                <p><strong>I still remember</strong> sitting in my very first Big Data lecture, scribbling notes as my professor declared, “Big Data is all about volume, velocity, and variety… you’ll get it later.” It sounded both grand and maddeningly vague. 🤔 Driven by confusion, I dove head-first into practical tools—Spark, Kafka, Hive—and soon realized there was a core set of concepts everyone in data needs to master. Along the way, terms like <strong>“data lake,” “lakehouse,” “Delta Lake,”</strong> and <strong>“data warehouse”</strong> all blurred together in my head.</p>
+                <p>This article aims to <strong>demystify</strong> these storage architectures and ingestion patterns for starters—so you can spend less time Googling and more time building. We’ll sprinkle in real-world examples to show <strong>why</strong> you might pick one approach over another.</p>
+
+                <h3>Storage Architectures & Formats</h3>
+                <p><strong>Anecdote:</strong> At first I was totally lost on the difference between a lakehouse and a warehouse. Then I realized they solve different problems—like choosing between a Ferrari and a pickup truck.</p>
+
+                <h4>1. Data Warehouse</h4>
+                <p>A <strong>data warehouse</strong> is a rigid, schema-on-write system optimized for SQL analytics and BI. You <strong>define tables up front</strong>, load transformed data, and enjoy rock-solid performance on reporting queries. Think Snowflake, Redshift, or BigQuery.</p>
+                <ul>
+                  <li><strong>Pros:</strong> Fast, consistent query speeds; mature tooling for dashboards.</li>
+                  <li><strong>Cons:</strong> Higher compute costs; tricky with semi-structured or unstructured data.</li>
+                </ul>
+                <p><strong>Example:</strong> A bank collects millions of daily transactions. They store <strong>customer accounts</strong>, <strong>balances</strong>, and <strong>transaction history</strong> in well-defined tables. Every night an ETL job cleans and aggregates that data so fraud teams and auditors can run quick, reliable SQL reports.</p>
+
+                <h4>2. Data Lake</h4>
+                <p>A <strong>data lake</strong> is a low-cost, schema-on-read repository (often on S3, ADLS, or GCS) that stores <strong>raw data</strong> in any format—CSV, JSON, logs, images, you name it. Great for ML experiments, but without governance it can become a “data swamp.”</p>
+                <ul>
+                  <li><strong>Pros:</strong> Ultra-flexible; stores everything as-is.</li>
+                  <li><strong>Cons:</strong> Can get messy; discovery and cleanup are your responsibility.</li>
+                </ul>
+                <p><strong>Example:</strong> An e-commerce startup dumps clickstream logs, user profiles, and raw server metrics into an S3 bucket. Data scientists then spin up Spark or Athena queries against that raw data—no predefined schema required—when exploring new ML features.</p>
+
+                <h4>3. Data Lakehouse</h4>
+                <p>A <strong>lakehouse</strong> combines the <strong>openness</strong> of a lake with the <strong>performance</strong> and <strong>management</strong> features of a warehouse. You get ACID transactions, metadata management, and time travel on top of object storage. Examples include Delta Lake and Apache Iceberg.</p>
+                <ul>
+                  <li><strong>Pros:</strong> Single platform for BI and ML; lower storage costs than pure warehouses.</li>
+                  <li><strong>Cons:</strong> Newer pattern; ecosystem still evolving.</li>
+                </ul>
+                <p><strong>Example:</strong> A media company uses Delta Lake on S3. Their analytics team runs BI dashboards on the same data ML engineers use for training recommendation models—no separate copies, and they can rollback to a previous snapshot if something breaks.</p>
+
+                <h4>4. Delta Lake</h4>
+                <p><strong>Delta Lake</strong> isn’t a location but a <strong>table format</strong> built on Parquet that adds a transaction log for ACID guarantees, schema enforcement, and time travel.</p>
+                <ul>
+                  <li><strong>Pros:</strong> Safe concurrent writes, rollbacks, incremental pipelines.</li>
+                  <li><strong>Cons:</strong> Requires engines that speak the Delta protocol (e.g., Databricks).</li>
+                </ul>
+                <p><strong>Example:</strong> When ingesting IoT sensor data in real time, Delta Lake lets you append new Parquet files while running batch analytics—without worrying about partial writes or inconsistent reads.</p>
+
+                <h4>File Formats vs. Table Formats</h4>
+                <p><strong>File Formats</strong> (Parquet, ORC, Avro) define on-disk encoding:</p>
+                <ul>
+                  <li><strong>Parquet</strong> (columnar) excels at compression and column pruning.</li>
+                  <li><strong>ORC</strong> brings similar strengths in Hive/Spark ecosystems.</li>
+                </ul>
+                <p><strong>Table Formats</strong> (Delta Lake, Iceberg, Hudi) sit above files, managing collections with metadata layers:</p>
+                <ul>
+                  <li>Enable <strong>safe commits</strong>, <strong>rollbacks</strong>, and <strong>schema evolution</strong>.</li>
+                  <li>Make your lake behave more like a warehouse under the hood.</li>
+                </ul>
+                <p><strong>Why It Matters:</strong> If you simply dump Parquet files to S3, you’ll struggle to perform reliable updates or deletes later. A table format gives you those database-like guarantees without leaving object storage.</p>
+
+                <h3>Ingestion Patterns</h3>
+                <p><strong>Important:</strong> While this is not exhaustive, it provides a simple starting point to understand the main and most common ingestion patterns, ELT and ETL!</p>
+
+                <h4>ETL vs. ELT</h4>
+                <p><strong>ETL (Extract → Transform → Load):</strong></p>
+                <ol>
+                  <li>Extract raw data from sources.</li>
+                  <li>Transform it on a dedicated engine (e.g., Spark).</li>
+                  <li>Load the cleansed results into the warehouse.</li>
+                </ol>
+                <p><strong>ELT (Extract → Load → Transform):</strong></p>
+                <ol>
+                  <li>Extract data from sources.</li>
+                  <li>Load it directly into the destination (e.g., Snowflake).</li>
+                  <li>Transform in-place using the warehouse’s compute.</li>
+                </ol>
+                <p><strong>Example – ETL:</strong> A retail chain pulls POS data, transforms it (currency conversions, day-of-week aggregations) in Spark, then loads a clean star schema into Redshift for nightly reporting.</p>
+                <p><strong>Example – ELT:</strong> A SaaS company loads raw event streams into BigQuery, then uses SQL (and dbt) to transform for analytics—letting them re-transform historical data anytime without rerunning a heavy Spark job.</p>
+
+                <h4>Batch Processing vs. Stream Processing</h4>
+                <table class="blog-table">
+                  <thead>
+                    <tr>
+                      <th>Aspect</th>
+                      <th>Batch Processing</th>
+                      <th>Stream Processing</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong>Latency</strong></td>
+                      <td>Minutes–hours (scheduled jobs)</td>
+                      <td>Milliseconds–seconds (real time)</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Volume</strong></td>
+                      <td>Large, finite sets</td>
+                      <td>Unbounded, continuous</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Complexity</strong></td>
+                      <td>Simpler pipelines</td>
+                      <td>State management, windowing, exactly-once</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Use Cases</strong></td>
+                      <td>Nightly reports, ETL, backups</td>
+                      <td>Real-time dashboards, fraud detection, IoT</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <p><strong>Batch</strong> shines when throughput and cost efficiency matter. <strong>Stream</strong> wins for freshness and immediate reaction, but requires platforms like Kafka, Flink, or Spark Structured Streaming.</p>
+                <p>Hybrid architectures—<strong>Lambda</strong> (both batch + speed) or <strong>Kappa</strong> (all-stream)—help teams balance accuracy with real-time needs.</p>
+
+                <h3>Wrapping Up</h3>
+                <p>From my initial confusion in that lecture to architecting production pipelines, these <strong>core concepts</strong>—storage architectures (warehouse, lake, lakehouse), file vs. table formats, and ingestion patterns (ETL/ELT, batch/stream)—form the bedrock of every scalable data platform. Whether you’re handling banking transactions or training ML models on terabytes of logs, mastering these pillars will keep your pipelines robust, cost-effective, and, yes, a little less mysterious.</p>
+                <p>So, next time someone drops <strong>“lakehouse”</strong> into conversation, you can smile and say, “Ah, yes—let me explain…”</p>
+              </div>
+
+            </section>
+
+          </div>
+        </article>
+
+      </div>
+    </main>
+
+    <script src="../assets/js/script.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+  </body>
+
+</html>
