@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your First Steps into the Cloud: The Must-Know Guide for Engineers</title>
+
+  <link rel="shortcut icon" href="../assets/images/MC_logo.ico" type="image/x-icon">
+  <link rel="stylesheet" href="../assets/css/style.css"> <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LXQLH66J4S"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-LXQLH66J4S');
+  </script>
+
+  <style>
+    /* --- Fixes for Blog Post Content --- */
+    .blog-post-text ul {
+      list-style: disc !important;
+      list-style-position: outside !important;
+      margin-left: 0 !important;
+      padding-left: 40px !important;
+    }
+    .blog-post-text ol {
+      list-style: decimal !important;
+      list-style-position: outside !important;
+      margin-left: 0 !important;
+      padding-left: 40px !important;
+    }
+    .blog-post-text li {
+      display: list-item !important;
+      list-style: inherit !important;
+      padding-left: 5px;
+      margin-bottom: 0.8em;
+    }
+    .blog-post-text p a,
+    .blog-post-text li a {
+      display: inline !important;
+      width: auto !important;
+    }
+    /* --- End of Fixes --- */
+
+    /* --- Layout Overrides for Full Width Post --- */
+    .main-content {
+      margin-left: 0;
+      width: 100%;
+      max-width: none;
+      border-radius: 0;
+      box-shadow: none;
+      border: none;
+      padding: 0;
+    }
+    .blog-post-content-wrapper {
+      max-width: 900px;
+      margin-left: 0;
+      margin-right: 0;
+      padding: 0 clamp(20px, 5vw, 60px);
+    }
+    .navbar { }
+
+    /* --- General Blog Post Styling --- */
+    .blog-post-article {
+      padding-top: 80px;
+      padding-bottom: 50px;
+    }
+    .blog-post-content { color: var(--light-gray); }
+    .blog-post-text p,
+    .blog-post-text li {
+      line-height: 1.8;
+    }
+    .blog-post-text p {
+      margin-bottom: 1.3em;
+    }
+    .blog-post-text ul, .blog-post-text ol {
+      margin-bottom: 1.3em;
+    }
+    .blog-post-text strong {
+      color: var(--white-1);
+      font-weight: 600;
+    }
+    .blog-post-banner {
+      display: block;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 45px;
+      border-radius: 12px;
+      overflow: hidden;
+      background-color: var(--eerie-black-2);
+      border: 1px solid var(--jet);
+      box-shadow: var(--shadow-2);
+    }
+    .blog-post-banner img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+    .blog-post-article header .article-title {
+      text-align: left;
+      margin-bottom: 1.8em;
+      padding: 0;
+    }
+    .blog-post-content h3 {
+      margin-top: 2.8em;
+      margin-bottom: 1.2em;
+      color: var(--white-1);
+      border-bottom: 2px solid var(--orange-yellow-crayola);
+      padding-bottom: 10px;
+      font-size: 1.6rem;
+    }
+    .blog-post-content h4 {
+      margin-top: 2.2em;
+      margin-bottom: 1em;
+      color: var(--white-2);
+      font-weight: 600;
+      font-size: 1.25rem;
+      border-left: 3px solid var(--orange-yellow-crayola);
+      padding-left: 12px;
+    }
+    .blog-post-text h5 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--white-1);
+      margin-top: 1.8em;
+      margin-bottom: 0.8em;
+      text-transform: none;
+    }
+    .blog-post-content a {
+      color: var(--orange-yellow-crayola);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s ease, text-decoration 0.2s ease;
+    }
+    .blog-post-content a:hover {
+      color: hsl(45, 100%, 80%);
+      text-decoration: underline;
+    }
+    .blog-post-text p a,
+    .blog-post-text li a {
+      border-bottom: 1px dotted var(--orange-yellow-crayola);
+    }
+    .blog-post-text p a:hover,
+    .blog-post-text li a:hover {
+      border-bottom-style: solid;
+    }
+
+    .blog-post-content pre,
+    .code-block {
+      background-color: var(--onyx);
+      color: #c5c8c6;
+      padding: 20px 22px;
+      border-radius: 10px;
+      overflow-x: auto;
+      font-family: 'Fira Code', 'Source Code Pro', Consolas, monospace;
+      font-size: 0.92rem;
+      line-height: 1.7;
+      margin: 30px 0;
+      border: 1px solid var(--jet);
+      box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+    }
+    .commit-example {
+      margin: 8px 0 15px 0 !important;
+      font-size: 0.88em !important;
+      padding: 10px 15px !important;
+      box-shadow: none !important;
+      background-color: #2d2d2d !important;
+    }
+    .blog-post-content code:not(pre > code) {
+      background-color: hsla(210, 4%, 18%, 0.8);
+      color: #ffcc99;
+      padding: 0.3em 0.55em;
+      border-radius: 5px;
+      font-size: 0.9em;
+      border: 1px solid var(--jet);
+      vertical-align: baseline;
+      font-family: 'Fira Code', 'Source Code Pro', Consolas, monospace;
+    }
+    .blog-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      margin: 35px 0;
+      font-size: 0.95em;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+      border: 1px solid var(--jet);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .blog-table th,
+    .blog-table td {
+      border: none;
+      border-bottom: 1px solid var(--smoky-black-3);
+      padding: 14px 18px;
+      text-align: left;
+      vertical-align: top;
+    }
+    .blog-table tbody tr:last-child td {
+      border-bottom: none;
+    }
+    .blog-table th {
+      background: linear-gradient(to bottom, var(--eerie-black-2), var(--onyx));
+      font-weight: 600;
+      color: var(--white-1);
+      text-transform: uppercase;
+      font-size: 0.88em;
+      letter-spacing: 0.8px;
+      border-bottom: 2px solid var(--orange-yellow-crayola);
+    }
+    .blog-table tbody tr {
+      background-color: var(--eerie-black-1);
+      transition: background-color 0.2s ease;
+    }
+    .blog-table tbody tr:nth-child(even) {
+      background-color: var(--onyx);
+    }
+    .blog-table tbody tr:hover {
+      background-color: var(--eerie-black-2);
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <main>
+    <div class="main-content">
+
+      <nav class="navbar">
+        <ul class="navbar-list">
+          <li class="navbar-item"><a href="../index.html" class="navbar-link">Home</a></li>
+          <li class="navbar-item"><a href="../resume.html" class="navbar-link">Resume</a></li>
+          <li class="navbar-item"><a href="../blog.html" class="navbar-link active">Blog</a></li>
+        </ul>
+      </nav>
+
+      <article class="blog-post-article active" data-page="blog-post">
+        <div class="blog-post-content-wrapper">
+
+          <header>
+            <h2 class="h2 article-title">Your First Steps into the Cloud: The Must-Know Guide for Engineers</h2>
+          </header>
+
+          <section class="blog-post-content">
+
+            <figure class="blog-post-banner">
+              <img src="../assets/images/aws-azure-google-cloud.png" alt="Big 3 Cloud Providers logos" loading="lazy">
+            </figure>
+
+            <div class="blog-post-text">
+              <p>You’ve heard the term <strong>“the cloud.”</strong> It’s where your photos are stored, where you stream movies from, and where the apps you use every day live. As a future software or data engineer, you won't just be <em>using</em> the cloud; you'll be <strong>building on it</strong>. The cloud will be your workshop, your factory, and your shipping center all in one.</p>
+              <p>But what <strong>is</strong> it, really? When you get past the marketing, the cloud is a global network of powerful, interconnected computers, and companies like <strong>Amazon Web Services (AWS)</strong>, <strong>Microsoft (Azure)</strong>, and <strong>Google (Google Cloud Platform aka GCP)</strong> let you rent access to them. Think of it like a utility. You don't build your own power plant to get electricity; you just plug into the grid. The cloud is a grid for computing power.</p>
+              <p>This guide will demystify the fundamental terms and concepts you'll encounter on day one of your job.</p>
+
+              <h3>1. Storing Your Data: Cloud Storage 💾</h3>
+              <p>At its heart, a lot of what you do in the cloud comes down to storing and accessing data. The most common and fundamental type of storage you'll use is <strong>Object Storage</strong>.</p>
+              
+              <h4>Objects and Buckets</h4>
+              <p>In a traditional file system, you have files and folders. In object storage, the two core concepts are <strong>objects</strong> and <strong>buckets</strong>.</p>
+              <ul>
+                <li>An <strong>object</strong> is a bundle containing the data itself (an image, log file, etc.), metadata (data <em>about</em> the data), and a unique ID.</li>
+                <li>A <strong>bucket</strong> (called a "container" in Azure) is a globally unique repository where your objects are stored.</li>
+              </ul>
+              
+              <h4>Hierarchical vs. Flat</h4>
+              <p>Your computer's file system is <strong>hierarchical</strong> (e.g., <code>C:\Users\Docs</code>). Object storage, however, has a <strong>flat</strong> structure. There are no real folders. An object with the key <code>images/profiles/avatar.jpg</code> simply has a name that contains slashes. The UI creates the <em>illusion</em> of folders for our convenience, which is a crucial concept for organizing vast amounts of data.</p>
+              <p>🔗 <strong>Learn More:</strong> <a href="https://aws.amazon.com/s3/" target="_blank">What is Object Storage? (AWS S3)</a></p>
+
+              <h3>2. Securing Your Kingdom: Identity &amp; Access Management (IAM) 🔐</h3>
+              <p>Now that you have data in a bucket, who can access it? This is where <strong>Identity and Access Management (IAM)</strong> comes in. IAM is the security grammar of the cloud.</p>
+              
+              <h4>Policies</h4>
+              <p>The core of IAM is the <strong>policy</strong>, a document (usually in JSON format) that explicitly defines permissions (e.g., "Allow UserA to Read from BucketB").</p>
+              
+              <h4>Identities</h4>
+              <p>Policies are attached to identities to grant them power.</p>
+              <ul>
+                <li><strong>Users:</strong> Accounts for individual people or applications.</li>
+                <li><strong>Groups:</strong> Collections of users to make managing permissions easier.</li>
+                <li><strong>Roles:</strong> An identity with temporary permissions that can be assumed by a trusted user or, more importantly, a cloud service (like a VM). This is the secure way to grant services access without hardcoding secret keys.</li>
+              </ul>
+
+              <h4>Principle of Least Privilege</h4>
+              <p>This is the golden rule of IAM. Only grant the absolute minimum permissions necessary for a user or service to perform its function.</p>
+              <p>🔗 <strong>Learn More:</strong> <a href="https://aws.amazon.com/iam/" target="_blank">What is IAM? (AWS IAM)</a></p>
+
+              <h3>3. Running Your Code: Core Compute Models 💻</h3>
+              <p>Storing data is passive; compute is where the action happens. You should know the three main ways to run your code.</p>
+              
+              <h4>Virtual Machines (VMs)</h4>
+              <p>This is your own private server (e.g., <strong>AWS EC2</strong>) living in a data center. You have full control over the operating system, memory, and CPU. It’s the foundational compute block.</p>
+              
+              <h4>Containers</h4>
+              <p>Mhhh, if you're wondering what a container is, you haven't read my second blog... go check it out <a href="blog2.html" target="_blank">here!</a>. I will anyways give a quick definition of it below 😉:</p>
+              <p>A container (popularized by <strong>Docker</strong>) packages your application and all its dependencies into a single, isolated unit. This is the modern standard for deploying applications because it's lightweight and consistent. <strong>Kubernetes</strong> is the most popular tool for managing containers at scale.</p>
+              
+              <h4>Serverless Functions</h4>
+              <p>The highest level of abstraction (e.g., <strong>AWS Lambda</strong>). You upload small pieces of code that run in response to events (like a new file upload). You don't manage any servers at all.</p>
+              <p>🔗 <strong>Learn More:</strong> <a href="https://aws.amazon.com/products/compute/" target="_blank">Overview of AWS Compute Services</a></p>
+
+              <h3>4. Connecting Everything: Virtual Networking 🌐</h3>
+              <p>You can't just put servers on the public internet. You need a secure, isolated network to connect your resources.</p>
+              
+              <h4>Virtual Private Cloud (VPC)</h4>
+              <p>This is your own logically isolated section of the public cloud. Think of it as putting a digital fence around all your resources for a project.</p>
+              
+              <h4>Subnets &amp; Security Groups</h4>
+              <ul>
+                <li><strong>Subnets</strong> are subdivisions within your VPC. A common pattern is having <strong>public subnets</strong> for web servers and <strong>private subnets</strong> for databases that shouldn't be exposed to the internet.</li>
+                <li><strong>Security Groups</strong> are the virtual firewalls or bouncers at the door of each resource (like a VM). They control what traffic is allowed in and out, for example, allowing your web server to talk to your database on its specific port.</li>
+              </ul>
+              <p>🔗 <strong>Learn More:</strong> <a href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html" target="_blank">What is a VPC? (AWS VPC)</a></p>
+
+              <h3>5. Building, Not Managing: Automation &amp; Managed Services 🛠️</h3>
+              <p>The goal of the cloud is to move, scale faster and most importantly, save money (virtually, no CapEX and low OpEx!). These two concepts are key to that velocity and efficiency.</p>
+              
+              <h4>Managed Databases</h4>
+              <p>While you <em>could</em> install PostgreSQL on a VM yourself, you almost never should. Services like <strong>Amazon RDS (Relational Database Service)</strong> handle the hard parts for you: patching, backups, and scaling. This lets you focus on your application, not on being a database administrator.</p>
+              
+              <h4>Infrastructure as Code (IaC)</h4>
+              <p>Manually clicking in the web console to set up your environment is slow and error-prone. IaC is the practice of defining your cloud resources (VMs, buckets, networks) in code files. <strong>Terraform</strong> is the most popular tool for this. It allows you to build, change, and version your infrastructure safely and repeatably.</p>
+              <p>🔗 <strong>Learn More:</strong> <a href="https://aws.amazon.com/rds/" target="_blank">What is a Managed Database? (AWS RDS)</a></p>
+              <p>🔗 <strong>Learn More:</strong> <a href="https://developer.hashicorp.com/terraform" target="_blank">What is Infrastructure as Code with Terraform?</a></p>
+
+              <h3>Your Next Step</h3>
+              <p>By understanding these core pillars—<strong>Storage, IAM, Compute, Networking, and Automation</strong>—you have the foundational knowledge to understand almost any cloud architecture.</p>
+              <p>Now, get your hands dirty. I personally use AWS and would recommend getting started there. You can <a href="https://www.google.com/aclk?sa=l&ai=DChcSEwih383g3fCNAxUkpIMHHTsIN0sYABAAGgJlZg&ae=2&aspm=1&co=1&ase=5&gclid=Cj0KCQjwu7TCBhCYARIsAM_S3NjgpXQKyHF0C2_cYwDPGlA4TcsxoZL1BD3WMYH1ImFR-HlkfDdpsqAaArr4EALw_wcB&ei=wlJNaI-aJf639u8PhfGx-AE&category=acrcp_v1_51&sig=AOD64_2rD5hTzPwUusO-N8F172mNzQrllw&q&sqi=2&adurl&ved=2ahUKEwiPg8jg3fCNAxX-m_0HHYV4DB8Q0Qx6BAgKEAE" target="_blank">sign up for a free tier account</a> and try to build a simple two-tier application using these concepts. While Azure and GCP are also fantastic platforms, the key is to start somewhere. Theory is good, but practice is better. Welcome to the cloud!</p>
+            </div>
+
+          </section>
+
+        </div>
+      </article>
+
+    </div>
+  </main>
+
+  <script src="../assets/js/script.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>
