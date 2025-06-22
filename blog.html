@@ -53,23 +53,18 @@
       box-shadow: var(--shadow-2);
       /* Example shadow - use your theme variable */
       transition: var(--transition-1);
-      /* Example transition */
     }
 
     .blog-post-link:hover {
       box-shadow: var(--shadow-1);
-      /* Example hover effect */
       transform: translateY(-3px);
     }
 
     .blog-post-preview .blog-post-banner img {
       width: 100%;
       height: 200px;
-      /* Fixed height for consistency */
       object-fit: cover;
-      /* Crop image nicely */
       display: block;
-      /* Remove extra space below image */
       border-bottom: 1px solid var(--jet);
       /* Optional separator */
     }
@@ -81,20 +76,15 @@
     .blog-post-preview .blog-post-title {
       margin-bottom: 10px;
       color: var(--white-2);
-      /* Example color */
       font-size: 1.1rem;
-      /* Adjust as needed */
     }
 
     .blog-post-preview .blog-post-excerpt {
       font-size: 0.9rem;
-      /* Adjust as needed */
       color: var(--light-gray);
-      /* Example color */
       line-height: 1.5;
     }
 
-    /* Add more styles as needed for responsiveness, date, etc. */
   </style>
 </head>
 
@@ -201,12 +191,21 @@
               </div>
             </article>
 
+            <a href="blog-posts/blog6.html" class="blog-post-link"> <!-- No inline style -->
+            <article class="blog-post-preview"> <!-- No inline style -->
+              <figure class="blog-post-banner"> <!-- Image figure is back -->
+                <img src="./assets/images/learning-digital.png" alt="Learning graphic" loading="lazy">
+              </figure>
+              <div class="blog-post-content"> <!-- No inline style -->
+                <h3 class="h3 blog-post-title">📚 My favourite resources to Learning Data & AI (and more) </h3> <!-- No inline style -->
+                <p class="blog-post-excerpt">Some of my favourite resources to upskill in Data and AI. Check them out! </p> <!-- No inline style -->
+              </div>
+            </article>
+
 
         </section> <!-- End blog-posts-container -->
 
-        <!-- Add More Blog Posts Here -->
-
-      </section> <!-- End blog-posts-container -->
+      </section> 
 
       </article> <!-- End blog article -->
     </div> <!-- End main-content -->
