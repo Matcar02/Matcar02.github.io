@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Confidence, Credibility, and Corporate Reality: A Guide to Statistical Thinking</title>
+
+  <link rel="shortcut icon" href="../assets/images/MC_logo.ico" type="image/x-icon">
+  <link rel="stylesheet" href="../assets/css/style.css"> <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LXQLH66J4S"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-LXQLH66J4S');
+  </script>
+
+  <style>
+    /* --- Fixes for Blog Post Content --- */
+    .blog-post-text ul {
+      list-style: disc !important;
+      list-style-position: outside !important;
+      margin-left: 0 !important;
+      padding-left: 40px !important;
+    }
+    .blog-post-text ol {
+      list-style: decimal !important;
+      list-style-position: outside !important;
+      margin-left: 0 !important;
+      padding-left: 40px !important;
+    }
+    .blog-post-text li {
+      display: list-item !important;
+      list-style: inherit !important;
+      padding-left: 5px;
+      margin-bottom: 0.8em;
+    }
+    .blog-post-text p a,
+    .blog-post-text li a {
+      display: inline !important;
+      width: auto !important;
+    }
+    /* --- End of Fixes --- */
+
+    /* --- Layout Overrides for Full Width Post --- */
+    .main-content {
+      margin-left: 0;
+      width: 100%;
+      max-width: none;
+      border-radius: 0;
+      box-shadow: none;
+      border: none;
+      padding: 0;
+    }
+    .blog-post-content-wrapper {
+      max-width: 900px;
+      margin-left: 0;
+      margin-right: 0;
+      padding: 0 clamp(20px, 5vw, 60px);
+    }
+    .navbar { }
+
+    /* --- General Blog Post Styling --- */
+    .blog-post-article {
+      padding-top: 80px;
+      padding-bottom: 50px;
+    }
+    .blog-post-content { color: var(--light-gray); }
+    .blog-post-text p,
+    .blog-post-text li {
+      line-height: 1.8;
+    }
+    .blog-post-text p {
+      margin-bottom: 1.3em;
+    }
+    .blog-post-text ul, .blog-post-text ol {
+      margin-bottom: 1.3em;
+    }
+    .blog-post-text strong {
+      color: var(--white-1);
+      font-weight: 600;
+    }
+    .blog-post-banner {
+      display: block;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 45px;
+      border-radius: 12px;
+      overflow: hidden;
+      background-color: var(--eerie-black-2);
+      border: 1px solid var(--jet);
+      box-shadow: var(--shadow-2);
+    }
+    .blog-post-banner img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+    .blog-post-article header .article-title {
+      text-align: left;
+      margin-bottom: 1.8em;
+      padding: 0;
+    }
+    .blog-post-content h3 {
+      margin-top: 2.8em;
+      margin-bottom: 1.2em;
+      color: var(--white-1);
+      border-bottom: 2px solid var(--orange-yellow-crayola);
+      padding-bottom: 10px;
+      font-size: 1.6rem;
+    }
+    .blog-post-content h4 {
+      margin-top: 2.2em;
+      margin-bottom: 1em;
+      color: var(--white-2);
+      font-weight: 600;
+      font-size: 1.25rem;
+      border-left: 3px solid var(--orange-yellow-crayola);
+      padding-left: 12px;
+    }
+    .blog-post-text h5 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--white-1);
+      margin-top: 1.8em;
+      margin-bottom: 0.8em;
+      text-transform: none;
+    }
+    .blog-post-content a {
+      color: var(--orange-yellow-crayola);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s ease, text-decoration 0.2s ease;
+    }
+    .blog-post-content a:hover {
+      color: hsl(45, 100%, 80%);
+      text-decoration: underline;
+    }
+    .blog-post-text p a,
+    .blog-post-text li a {
+      border-bottom: 1px dotted var(--orange-yellow-crayola);
+    }
+    .blog-post-text p a:hover,
+    .blog-post-text li a:hover {
+      border-bottom-style: solid;
+    }
+
+    .blog-post-content pre,
+    .code-block {
+      background-color: var(--onyx);
+      color: #c5c8c6;
+      padding: 20px 22px;
+      border-radius: 10px;
+      overflow-x: auto;
+      font-family: 'Fira Code', 'Source Code Pro', Consolas, monospace;
+      font-size: 0.92rem;
+      line-height: 1.7;
+      margin: 30px 0;
+      border: 1px solid var(--jet);
+      box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+    }
+    .commit-example {
+      margin: 8px 0 15px 0 !important;
+      font-size: 0.88em !important;
+      padding: 10px 15px !important;
+      box-shadow: none !important;
+      background-color: #2d2d2d !important;
+    }
+    .blog-post-content code:not(pre > code) {
+      background-color: hsla(210, 4%, 18%, 0.8);
+      color: #ffcc99;
+      padding: 0.3em 0.55em;
+      border-radius: 5px;
+      font-size: 0.9em;
+      border: 1px solid var(--jet);
+      vertical-align: baseline;
+      font-family: 'Fira Code', 'Source Code Pro', Consolas, monospace;
+    }
+    .blog-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      margin: 35px 0;
+      font-size: 0.95em;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+      border: 1px solid var(--jet);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .blog-table th,
+    .blog-table td {
+      border: none;
+      border-bottom: 1px solid var(--smoky-black-3);
+      padding: 14px 18px;
+      text-align: left;
+      vertical-align: top;
+    }
+    .blog-table tbody tr:last-child td {
+      border-bottom: none;
+    }
+    .blog-table th {
+      background: linear-gradient(to bottom, var(--eerie-black-2), var(--onyx));
+      font-weight: 600;
+      color: var(--white-1);
+      text-transform: uppercase;
+      font-size: 0.88em;
+      letter-spacing: 0.8px;
+      border-bottom: 2px solid var(--orange-yellow-crayola);
+    }
+    .blog-table tbody tr {
+      background-color: var(--eerie-black-1);
+      transition: background-color 0.2s ease;
+    }
+    .blog-table tbody tr:nth-child(even) {
+      background-color: var(--onyx);
+    }
+    .blog-table tbody tr:hover {
+      background-color: var(--eerie-black-2);
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <main>
+    <div class="main-content">
+
+      <nav class="navbar">
+        <ul class="navbar-list">
+          <li class="navbar-item"><a href="../index.html" class="navbar-link">Home</a></li>
+          <li class="navbar-item"><a href="../resume.html" class="navbar-link">Resume</a></li>
+          <li class="navbar-item"><a href="../blog.html" class="navbar-link active">Blog</a></li>
+        </ul>
+      </nav>
+
+      <article class="blog-post-article active" data-page="blog-post">
+        <div class="blog-post-content-wrapper">
+
+          <header>
+            <h2 class="h2 article-title">Confidence, Credibility, and Corporate Reality: A Guide to Statistical Thinking</h2>
+          </header>
+
+          <section class="blog-post-content">
+
+            <figure class="blog-post-banner">
+              <img src="../assets/images/credible_interval.png" alt="A desk with various charts and graphs showing statistical analysis" loading="lazy">
+            </figure>
+
+            <div class="blog-post-text">
+              <p>Lately, I've been deep in a few projects involving inferential statistics, and it’s taken me back to one of the most fundamental concepts in our field. I still remember the moment when I first truly understood the difference between a confidence interval and a credible interval. At first, I was just confused—why was the less intuitive "confidence interval" so popular? Then, when it clicked, it was a revelation. It felt like I had been given a new lens to see the world, and it sparked a deeper interest in the powerful field of causal inference.</p>
+              <p>This distinction isn't just academic trivia; it's a cornerstone of thinking clearly about data. Let's break it down.</p>
+              
+              <h3>The Confidence Interval: A Misunderstood Workhorse</h3>
+              <p>You've seen it a thousand times. An analyst presents a result: "We are 95% confident that the average revenue per user for this new feature is between $5.20 and $7.80." Most people, very reasonably, interpret this as: "There is a 95% probability that the true average revenue is between $5.20 and $7.80."</p>
+              <p>Here's the uncomfortable truth: that interpretation is wrong.</p>
+              <p>A confidence interval is a <strong>frequentist</strong> concept. The "95% confidence" doesn't refer to your specific interval; it refers to the <em>method</em> you used to create it. Think of it this way: if you were to run your experiment 100 times, and calculate a 95% confidence interval each time, you would expect the true, unknown average revenue to be captured inside your interval in about 95 of those 100 experiments.</p>
+              <p>For the <em>one</em> interval you just calculated—[$5.20, $7.80]—the true value is either in it or it isn't. The probability is 100% or 0%. We just don't know which. Your confidence is in the long-term success rate of your procedure, not in the specific result you’re looking at.</p>
+              <p>They are incredibly useful for standardized reporting and understanding the precision of an estimate (wider intervals mean more uncertainty), but their limitation is that they can't give you the simple probabilistic statement you wish they could.</p>
+              
+              <h3>The Credible Interval: What You <em>Thought</em> You Were Getting</h3>
+              <p>This brings us to the <strong>Bayesian</strong> alternative: the credible interval.</p>
+              <p>A 95% credible interval <em>does</em> mean what most people think. It’s a range for which you can say, "Given our data and our prior beliefs, there is a 95% probability that the true parameter lies within this interval."</p>
+              <p>How does it work? Briefly, Bayesian inference starts with a <strong>prior belief</strong> about the parameter (e.g., based on past experiments, you might believe the average revenue is likely around $6.00). Then, you collect your data and use it to <strong>update</strong> your belief. The result is a <strong>posterior probability distribution</strong>, and the credible interval is simply a 95% slice of that final distribution. It’s a more intuitive and direct way to talk about probability.</p>
+
+              <h3>Statistics in the Wild: Corporate Experiments</h3>
+              <p>So how does this play out in a real corporate setting? Let's talk about A/B testing, the bedrock of product and marketing decisions.</p>
+              <p>Imagine we're testing a new checkout flow (Version B) against our old one (Version A). Our goal is to see if Version B increases the conversion rate.</p>
+              <ul>
+                <li><strong>A Frequentist Approach:</strong> We would set up a hypothesis test. The null hypothesis is that there is no difference. We run the test for a fixed period and calculate a p-value and a confidence interval for the difference. If p < 0.05, we declare a winner. The confidence interval gives us a range for the plausible size of the effect, but we can't assign a direct probability to it.</li>
+                <li><strong>A Bayesian & Causal Approach:</strong> Using credible intervals, we can end the test with a much more powerful statement: "There is a 97% probability that Version B is better than Version A." We can also calculate the "Expected Loss"—the cost of choosing the wrong version. This allows for a direct conversation about business risk. We can ask, "If we roll out Version B, what's the probability it will actually <em>lose</em> us money?"</li>
+              </ul>
+              <p>This moves the conversation from rigid "significant/not significant" labels to a more nuanced discussion about probability and impact. This is where causal inference becomes so powerful—it allows us to move beyond correlation and make direct claims about the effect of our actions.</p>
+
+              <h3>The Reality of the Corporate World</h3>
+              <p>In a corporate setting, nobody has perfect data. We are constantly dealing with uncertainty, messy logs, and limited resources. We can't always run  perfectly controlled experiments.</p>
+              <p>This is where statistical thinking is most valuable. It’s not about finding a single, "certain" answer. It’s about quantifying uncertainty, managing risk, and making the best possible decision with the information you have. Statistics gives you a robust framework to argue why a certain result is likely not due to random chance, and it provides the language to communicate the level of risk associated with a decision to stakeholders.</p>
+              
+              <h3>Considerations and Final Thoughts</h3>
+              <p>While I find the Bayesian approach and credible intervals more intuitive for decision-making, confidence intervals are still the dominant method in many scientific and industrial fields due to their objectivity (they don't require a prior).</p>
+              <p>The most important takeaway is to know what your tools are actually telling you. In an era where Machine Learning models can feel like black boxes, a deep understanding of inferential statistics remains the bedrock of a data professional’s toolkit. It allows you to design valid experiments, interpret the results correctly, and ultimately, to guide the business with clarity and intellectual honesty. It’s how we move from just processing data to providing real, defensible insights.</p>
+            </div>
+
+          </section>
+
+        </div>
+      </article>
+
+    </div>
+  </main>
+
+  <script src="../assets/js/script.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>
