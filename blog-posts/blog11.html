@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Making Python Fly: A Practical Guide to Efficient Code</title>
+
+  <link rel="shortcut icon" href="../assets/images/MC_logo.ico" type="image/x-icon">
+  <link rel="stylesheet" href="../assets/css/style.css"> <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* --- Fixes for Blog Post Content --- */
+    .blog-post-text ul {
+      list-style: disc !important;
+      list-style-position: outside !important;
+      margin-left: 0 !important;
+      padding-left: 40px !important;
+    }
+    .blog-post-text ol {
+      list-style: decimal !important;
+      list-style-position: outside !important;
+      margin-left: 0 !important;
+      padding-left: 40px !important;
+    }
+    .blog-post-text li {
+      display: list-item !important;
+      list-style: inherit !important;
+      padding-left: 5px;
+      margin-bottom: 0.8em;
+    }
+    .blog-post-text p a,
+    .blog-post-text li a {
+      display: inline !important;
+      width: auto !important;
+    }
+    /* --- End of Fixes --- */
+
+    /* --- Layout Overrides for Full Width Post --- */
+    .main-content {
+      margin-left: 0;
+      width: 100%;
+      max-width: none;
+      border-radius: 0;
+      box-shadow: none;
+      border: none;
+      padding: 0;
+    }
+    .blog-post-content-wrapper {
+      max-width: 900px;
+      margin-left: 0;
+      margin-right: 0;
+      padding: 0 clamp(20px, 5vw, 60px);
+    }
+    .navbar { }
+
+    /* --- General Blog Post Styling --- */
+    .blog-post-article {
+      padding-top: 80px;
+      padding-bottom: 50px;
+    }
+    .blog-post-content { color: var(--light-gray); }
+    .blog-post-text p,
+    .blog-post-text li {
+      line-height: 1.8;
+    }
+    .blog-post-text p {
+      margin-bottom: 1.3em;
+    }
+    .blog-post-text ul, .blog-post-text ol {
+      margin-bottom: 1.3em;
+    }
+    .blog-post-text strong {
+      color: var(--white-1);
+      font-weight: 600;
+    }
+    .blog-post-banner {
+      display: block;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 45px;
+      border-radius: 12px;
+      overflow: hidden;
+      background-color: var(--eerie-black-2);
+      border: 1px solid var(--jet);
+      box-shadow: var(--shadow-2);
+    }
+    .blog-post-banner img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+    .blog-post-article header .article-title {
+      text-align: left;
+      margin-bottom: 1.8em;
+      padding: 0;
+    }
+    .blog-post-content h3 {
+      margin-top: 2.8em;
+      margin-bottom: 1.2em;
+      color: var(--white-1);
+      border-bottom: 2px solid var(--orange-yellow-crayola);
+      padding-bottom: 10px;
+      font-size: 1.6rem;
+    }
+    .blog-post-content h4 {
+      margin-top: 2.2em;
+      margin-bottom: 1em;
+      color: var(--white-2);
+      font-weight: 600;
+      font-size: 1.25rem;
+      border-left: 3px solid var(--orange-yellow-crayola);
+      padding-left: 12px;
+    }
+    .blog-post-text h5 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--white-1);
+      margin-top: 1.8em;
+      margin-bottom: 0.8em;
+      text-transform: none;
+    }
+    .blog-post-content a {
+      color: var(--orange-yellow-crayola);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s ease, text-decoration 0.2s ease;
+    }
+    .blog-post-content a:hover {
+      color: hsl(45, 100%, 80%);
+      text-decoration: underline;
+    }
+    .blog-post-text p a,
+    .blog-post-text li a {
+      border-bottom: 1px dotted var(--orange-yellow-crayola);
+    }
+    .blog-post-text p a:hover,
+    .blog-post-text li a:hover {
+      border-bottom-style: solid;
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <div class="main-content">
+      <nav class="navbar">
+        <ul class="navbar-list">
+          <li class="navbar-item"><a href="../index.html" class="navbar-link">Home</a></li>
+          <li class="navbar-item"><a href="../resume.html" class="navbar-link">Resume</a></li>
+          <li class="navbar-item"><a href="../blog.html" class="navbar-link active">Blog</a></li>
+        </ul>
+      </nav>
+      <article class="blog-post-article active" data-page="blog-post">
+        <div class="blog-post-content-wrapper">
+          <header>
+            <h2 class="h2 article-title">Making Python Fly: A Practical Guide to Efficient Code</h2>
+          </header>
+          <section class="blog-post-content">
+            <figure class="blog-post-banner">
+              <img src="../assets/images/multithreading-python-21.png" alt="A laptop screen showing lines of Python code, representing software development and optimization." loading="lazy">
+            </figure>
+            <div class="blog-post-text">
+              <p>Python is famous for its simplicity and readability, but it has a reputation for being "slow." While it may not match the raw speed of C++ or Rust, most "slow" Python code is simply code that hasn't been optimized. Writing efficient Python isn't about obscure tricks; it's about understanding how Python works and choosing the right tool for the job.</p>
+              <p>This short guide will cover the essentials of making your Python code as performant as possible.</p>
+              
+              <h3>Concurrency vs. Parallelism: The Illusion and the Reality</h3>
+              <p>This is the biggest point of confusion in Python performance.</p>
+              <ul>
+                <li><strong>Concurrency</strong> is about dealing with many tasks at once. Think of a chef in a kitchen juggling multiple orders—chopping vegetables while a soup simmers. They are context-switching between tasks.</li>
+                <li><strong>Parallelism</strong> is about doing many tasks at once. Imagine that same kitchen with multiple chefs, each working on a separate order simultaneously.</li>
+              </ul>
+              <p>In Python, the <strong>Global Interpreter Lock (GIL)</strong> is a core feature of the main CPython implementation that prevents multiple threads from executing Python code at the exact same time. This means that even if you have multiple processor cores, Python's <code>threading</code> module only achieves concurrency, not true parallelism.</p>
+              
+              <h3>The Right Tool for the Task</h3>
+              <h4>1. For I/O-Bound Tasks: Use <code>threading</code> or <code>asyncio</code></h4>
+              <p>If your code is spending most of its time waiting for external resources (like making an API call, querying a database, or reading a file), it's <strong>I/O-bound</strong>. The GIL doesn't matter here because it's released while the thread is waiting.</p>
+              <ul>
+                <li><strong><code>threading</code>:</strong> A great, straightforward way to run multiple I/O operations concurrently. Easy to understand for a handful of tasks.</li>
+                <li><strong><code>asyncio</code>:</strong> A more modern and scalable approach for handling thousands of concurrent I/O operations. It uses a single thread and an event loop to manage tasks, which is extremely efficient for things like high-performance web servers or network crawlers.</li>
+              </ul>
+              
+              <h4>2. For CPU-Bound Tasks: Use <code>multiprocessing</code></h4>
+              <p>If your code is doing heavy computation (like complex math, data processing, or simulations), it's <strong>CPU-bound</strong>. This is where the GIL is a bottleneck.</p>
+              <ul>
+                <li><strong><code>multiprocessing</code>:</strong> This module gets around the GIL by creating separate processes, each with its own Python interpreter and memory. This allows your code to run on multiple CPU cores in true parallelism. It's the go-to solution for heavy computational workloads.</li>
+              </ul>
+              
+              <h3>Writing Efficient Code: Beyond Concurrency</h3>
+              <h4>1. Avoid Reinventing the Wheel: Use Built-ins and Libraries</h4>
+              <p>Python's built-in functions (like <code>sum()</code>, <code>map()</code>, <code>filter()</code>) and data structures are written in highly optimized C.</p>
+              <ul>
+                <li>Don't write a <code>for</code> loop to sum a list; use <code>sum(my_list)</code>.</li>
+                <li>For numerical data, use libraries like <strong>NumPy</strong>. NumPy operations are vectorized and executed in compiled C or Fortran code, making them orders of magnitude faster than manual Python loops for array calculations.</li>
+              </ul>
+              
+              <h4>2. Be Smart About Memory: Garbage Collection and Generators</h4>
+              <p>Python handles memory management automatically through a process called <strong>garbage collection</strong>. It primarily uses a technique called "reference counting," where an object is deleted as soon as its last reference is gone. While it's automatic, you can still help it:</p>
+              <ul>
+                <li><strong>Use Generators:</strong> When you need to iterate over a huge sequence, don't create a massive list in memory. Use a generator. A <code>for</code> loop over <code>range(1_000_000_000)</code> starts instantly and uses almost no memory, whereas <code>list(range(1_000_000_000))</code> will likely crash your machine.</li>
+                <li><strong>Interact with the Garbage Collector:</strong> Python provides the <strong><code>gc</code></strong> module for developers. While you rarely need it, you can manually trigger garbage collection with <code>gc.collect()</code>. This can be useful in specific situations, like after deleting a large object with circular references, to release memory immediately.</li>
+                <li><strong>Choose the Right Data Structures:</strong> A <code>set</code> is much faster than a <code>list</code> for checking if an item exists (<code>if item in my_collection:</code>).</li>
+              </ul>
+
+              <h3>The Golden Rule: Profile Before You Optimize</h3>
+              <p>How do you know which part of your code is slow? <strong>Don't guess, measure.</strong></p>
+              <p>Python has excellent built-in profiling tools. <code>cProfile</code> is a great starting point. You can run it on your script to get a detailed report of how many times each function was called and how long it took. This will immediately show you the real bottlenecks.</p>
+              <p>Focusing your optimization efforts on the 20% of the code that takes 80% of the time is the most effective way to improve performance.</p>
+
+              <h3>Further Reading & Tools</h3>
+              <h4>Helpful Articles</h4>
+              <ul>
+                <li><strong>The Python GIL:</strong> The article you shared is the gold standard: <a href="https://realpython.com/python-gil/" target="_blank">What Is the Python Global Interpreter Lock (GIL)?</a> on Real Python.</li>
+                <li><strong>Concurrency & Parallelism:</strong> Real Python also has a fantastic guide here: <a href="https://realpython.com/python-concurrency/" target="_blank">Speed Up Your Python Program With Concurrency</a>.</li>
+                <li><strong>Asyncio:</strong> A great starter guide can be found here: <a href="https://realpython.com/async-io-python/" target="_blank">Async IO in Python: A Complete Walkthrough</a>.</li>
+                <li><strong>Garbage Collection:</strong> The official documentation for the <a href="https://docs.python.org/3/library/gc.html" target="_blank"><code>gc</code> module</a> is the best source.</li>
+              </ul>
+              <h4>Tools for Measurement</h4>
+              <ul>
+                <li><strong>CPU Profiling:</strong> The built-in <a href="https://docs.python.org/3/library/profile.html" target="_blank"><strong><code>cProfile</code></strong></a> is the best place to start for finding time-based bottlenecks.</li>
+                <li><strong>Memory Profiling:</strong> The <a href="https://pypi.org/project/memory-profiler/" target="_blank"><strong><code>memory-profiler</code></strong></a> package is excellent for this. You can run it from the command line with <code>mprof run your_script.py</code> and then create a visual plot of memory usage over time with <code>mprof plot</code>.</li>
+                <li><strong>System monitoring and profiling (and more!):</strong> The <a href="https://pypi.org/project/psutil/" target="_blank"><strong><code>psutil</code></strong></a> package is a great package for system monitoring, CPU utilization, and more!</li>
+
+              </ul>
+            </div>
+          </section>
+        </div>
+      </article>
+    </div>
+  </main>
+</body>
+</html>
