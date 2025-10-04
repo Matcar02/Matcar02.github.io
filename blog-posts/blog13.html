@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beyond "Correlation is Not Causation": A Practical Intro to Causal Inference</title>
+
+  <link rel="shortcut icon" href="../assets/images/MC_logo.ico" type="image/x-icon">
+  <link rel="stylesheet" href="../assets/css/style.css"> <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* --- Fixes for Blog Post Content --- */
+    .blog-post-text ul {
+      list-style: disc !important;
+      list-style-position: outside !important;
+      margin-left: 0 !important;
+      padding-left: 40px !important;
+    }
+    .blog-post-text ol {
+      list-style: decimal !important;
+      list-style-position: outside !important;
+      margin-left: 0 !important;
+      padding-left: 40px !important;
+    }
+    .blog-post-text li {
+      display: list-item !important;
+      list-style: inherit !important;
+      padding-left: 5px;
+      margin-bottom: 0.8em;
+    }
+    .blog-post-text p a,
+    .blog-post-text li a {
+      display: inline !important;
+      width: auto !important;
+    }
+    /* --- End of Fixes --- */
+
+    /* --- Layout Overrides for Full Width Post --- */
+    .main-content {
+      margin-left: 0;
+      width: 100%;
+      max-width: none;
+      border-radius: 0;
+      box-shadow: none;
+      border: none;
+      padding: 0;
+    }
+    .blog-post-content-wrapper {
+      max-width: 900px;
+      margin-left: 0;
+      margin-right: 0;
+      padding: 0 clamp(20px, 5vw, 60px);
+    }
+    .navbar { }
+
+    /* --- General Blog Post Styling --- */
+    .blog-post-article {
+      padding-top: 80px;
+      padding-bottom: 50px;
+    }
+    .blog-post-content { color: var(--light-gray); }
+    .blog-post-text p,
+    .blog-post-text li {
+      line-height: 1.8;
+    }
+    .blog-post-text p {
+      margin-bottom: 1.3em;
+    }
+    .blog-post-text ul, .blog-post-text ol {
+      margin-bottom: 1.3em;
+    }
+    .blog-post-text strong {
+      color: var(--white-1);
+      font-weight: 600;
+    }
+    .blog-post-banner {
+      display: block;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 45px;
+      border-radius: 12px;
+      overflow: hidden;
+      background-color: var(--eerie-black-2);
+      border: 1px solid var(--jet);
+      box-shadow: var(--shadow-2);
+    }
+    .blog-post-banner img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+    .blog-post-article header .article-title {
+      text-align: left;
+      margin-bottom: 1.8em;
+      padding: 0;
+    }
+    .blog-post-content h3 {
+      margin-top: 2.8em;
+      margin-bottom: 1.2em;
+      color: var(--white-1);
+      border-bottom: 2px solid var(--orange-yellow-crayola);
+      padding-bottom: 10px;
+      font-size: 1.6rem;
+    }
+    .blog-post-content h4 {
+      margin-top: 2.2em;
+      margin-bottom: 1em;
+      color: var(--white-2);
+      font-weight: 600;
+      font-size: 1.25rem;
+      border-left: 3px solid var(--orange-yellow-crayola);
+      padding-left: 12px;
+    }
+    .blog-post-text h5 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--white-1);
+      margin-top: 1.8em;
+      margin-bottom: 0.8em;
+      text-transform: none;
+    }
+    .blog-post-content a {
+      color: var(--orange-yellow-crayola);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s ease, text-decoration 0.2s ease;
+    }
+    .blog-post-content a:hover {
+      color: hsl(45, 100%, 80%);
+      text-decoration: underline;
+    }
+    .blog-post-text p a,
+    .blog-post-text li a {
+      border-bottom: 1px dotted var(--orange-yellow-crayola);
+    }
+    .blog-post-text p a:hover,
+    .blog-post-text li a:hover {
+      border-bottom-style: solid;
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <div class="main-content">
+      <nav class="navbar">
+        <ul class="navbar-list">
+          <li class="navbar-item"><a href="../index.html" class="navbar-link">Home</a></li>
+          <li class="navbar-item"><a href="../resume.html" class="navbar-link">Resume</a></li>
+          <li class="navbar-item"><a href="../blog.html" class="navbar-link active">Blog</a></li>
+        </ul>
+      </nav>
+      <article class="blog-post-article active" data-page="blog-post">
+        <div class="blog-post-content-wrapper">
+          <header>
+            <h2 class="h2 article-title">Beyond "Correlation is Not Causation": A Gentle Intro to Causal Inference</h2>
+          </header>
+
+          <section class="blog-post-content">
+            <figure class="blog-post-banner">
+              <img src="../assets/images/corr_cause.webp" alt="A busy conference hall with many attendees networking." loading="lazy">
+            </figure>
+            <div class="blog-post-text">
+              <p>As data professionals, we're taught from day one to chant the mantra: "Correlation is not causation." We see that ice cream sales and shark attacks are correlated, but we know one doesn't cause the other (the hidden cause, or <strong>confounder</strong>, is summer weather). This is a great starting point, but it's not the end of the story. Simply stopping at "correlation is not causation" is like learning to identify problems without ever learning how to solve them.</p>
+              <p>The real question isn't "Are these two things correlated?" but rather, "Did my action <strong>cause</strong> this outcome?" Answering this is the domain of <strong>causal inference</strong>, and it's what separates a data analyst from a trusted advisor.</p>
+              
+              <h3>The Fundamental Problem: We Can't Clone Our Customers</h3>
+              <p>Imagine a user signs up for your product. You show them a new onboarding tutorial. A week later, they become a paying customer. Did the tutorial cause them to convert?</p>
+              <p>The only way to know for sure would be to travel back in time, not show them the tutorial, and see if they still converted. This impossible, "what if" scenario is what researchers call the <strong>counterfactual</strong>. The core challenge of causal inference is that we can only ever observe one reality. We can't clone our customers to see what they would have done differently.</p>
+              <p>So, how do we solve this? We use clever statistical methods to simulate a counterfactual world.</p>
+
+              <h3>The Gold Standard: Randomized Controlled Trials (A/B Testing)</h3>
+              <p>The cleanest way to establish causality is to run a <strong>Randomized Controlled Trial (RCT)</strong>, which you already know by its industry name: the <strong>A/B test</strong>.</p>
+              <p>Why is randomization so powerful? When we randomly assign users to a control group (Group A, no tutorial) and a treatment group (Group B, new tutorial), we can be reasonably sure that, on average, the two groups are identical in every way except for seeing the tutorial. Randomization balances confounders across groups, especially with large samples, so any systematic difference in outcomes can be attributed to the treatment rather than other factors.</p>
+              <p>If we then observe a statistically significant difference in conversion rates, we can reasonably infer that the tutorial caused the change. We have strong evidence that we’ve isolated the effect of our intervention.</p>
+              
+              <h3>When A/B Tests Aren’t Possible: The World of Observational Causal Inference</h3>
+              <p>But what if you can't run an A/B test? Maybe the feature is already live for everyone, or it's unethical or impractical to withhold it. This is where most data lives, and it's where more advanced techniques come into play.</p>
+              <p>These methods aim to statistically mimic an RCT using historical, observational data. Here’s the intuition behind one popular method:</p>
+              <p><strong>Propensity Score Matching:</strong> Imagine we want to know the effect of a "pro" subscription on user engagement. We can't force people to not be "pro." So instead, we look at our data and, for every "pro" user, we try to find a "free" user who looked almost identical to them right before they subscribed—similar activity levels, similar location, similar sign-up date, etc. We calculate a "propensity score" (the probability of subscribing) for each user and match them up. By creating these carefully matched pairs, we build an artificial control group, allowing us to estimate the causal effect of the subscription.</p>
+              <p>Of course, this approach can only balance factors we can observe and measure. Unobserved differences—like motivation or intent—can still bias results, so causal claims from observational data always require careful interpretation.</p>
+              <p>Other methods include <strong>Difference-in-Differences</strong>, <strong>Instrumental Variables</strong>, and <strong>Regression Discontinuity</strong>, each with its own clever way of trying to isolate a causal effect from messy, real-world data. Behind these approaches lies a powerful framework called causal diagrams (or <strong>DAGs</strong>), which help visualize and reason about assumptions — a great next step for anyone wanting to go deeper.</p>
+
+              <h3>Why This Matters for Your Career</h3>
+              <p>Moving from correlation to causation is the leap from making reports to driving strategy.</p>
+              <p><strong>A correlational insight sounds like:</strong> “We noticed that users who use Feature X have lower churn.” (Interesting, but what do we do?)</p>
+              <p><strong>A causal insight sounds like:</strong> “Our analysis shows that encouraging new users to adopt Feature X would cause about a 5% reduction in churn, generating an estimated $200k in revenue.” (This is a clear, actionable business case.)</p>
+              <p>Understanding causal inference allows you to move beyond simply describing "what is" and start advising on "what we should do." It's about providing the confidence the business needs to invest in one feature over another, and it’s one of the most valuable skills a data professional can develop.</p>
+            </div>
+          </section>
+        </div>
+      </article>
+    </div>
+  </main>
+</body>
+</html>
