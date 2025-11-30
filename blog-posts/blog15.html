@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Agents Are Overhyped — But Here’s Why They Still Matter</title>
+
+  <link rel="shortcut icon" href="../assets/images/MC_logo.ico" type="image/x-icon">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LXQLH66J4S"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-LXQLH66J4S');
+  </script>
+
+  <style>
+    /* --- Fixes for Blog Post Content --- */
+    .blog-post-text ul {
+      list-style: disc !important;
+      list-style-position: outside !important;
+      margin-left: 0 !important;
+      padding-left: 40px !important;
+    }
+    .blog-post-text ol {
+      list-style: decimal !important;
+      list-style-position: outside !important;
+      margin-left: 0 !important;
+      padding-left: 40px !important;
+    }
+    .blog-post-text li {
+      display: list-item !important;
+      list-style: inherit !important;
+      padding-left: 5px;
+      margin-bottom: 0.8em;
+    }
+    .blog-post-text p a,
+    .blog-post-text li a {
+      display: inline !important;
+      width: auto !important;
+    }
+
+    /* --- Layout Overrides for Full Width Post --- */
+    .main-content {
+      margin-left: 0;
+      width: 100%;
+      max-width: none;
+      border-radius: 0;
+      box-shadow: none;
+      border: none;
+      padding: 0;
+    }
+    .blog-post-content-wrapper {
+      max-width: 900px;
+      margin-left: 0;
+      margin-right: 0;
+      padding: 0 clamp(20px, 5vw, 60px);
+    }
+    .navbar { }
+
+    /* --- General Blog Post Styling --- */
+    .blog-post-article {
+      padding-top: 80px;
+      padding-bottom: 50px;
+    }
+    .blog-post-content { color: var(--light-gray); }
+    .blog-post-text p,
+    .blog-post-text li {
+      line-height: 1.8;
+    }
+    .blog-post-text p {
+      margin-bottom: 1.3em;
+    }
+    .blog-post-text ul,
+    .blog-post-text ol {
+      margin-bottom: 1.3em;
+    }
+    .blog-post-text strong {
+      color: var(--white-1);
+      font-weight: 600;
+    }
+    .blog-post-banner {
+      display: block;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 45px;
+      border-radius: 12px;
+      overflow: hidden;
+      background-color: var(--eerie-black-2);
+      border: 1px solid var(--jet);
+      box-shadow: var(--shadow-2);
+    }
+    .blog-post-banner img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+    .blog-post-article header .article-title {
+      text-align: left;
+      margin-bottom: 1.8em;
+      padding: 0;
+    }
+    .blog-post-content h3 {
+      margin-top: 2.8em;
+      margin-bottom: 1.2em;
+      color: var(--white-1);
+      border-bottom: 2px solid var(--orange-yellow-crayola);
+      padding-bottom: 10px;
+      font-size: 1.6rem;
+    }
+    .blog-post-content h4 {
+      margin-top: 2.2em;
+      margin-bottom: 1em;
+      color: var(--white-2);
+      font-weight: 600;
+      font-size: 1.25rem;
+      border-left: 3px solid var(--orange-yellow-crayola);
+      padding-left: 12px;
+    }
+    .blog-post-text h5 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--white-1);
+      margin-top: 1.8em;
+      margin-bottom: 0.8em;
+      text-transform: none;
+    }
+    .blog-post-content a {
+      color: var(--orange-yellow-crayola);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s ease, text-decoration 0.2s ease;
+    }
+    .blog-post-content a:hover {
+      color: hsl(45, 100%, 80%);
+      text-decoration: underline;
+    }
+    .blog-post-text p a,
+    .blog-post-text li a {
+      border-bottom: 1px dotted var(--orange-yellow-crayola);
+    }
+    .blog-post-text p a:hover,
+    .blog-post-text li a:hover {
+      border-bottom-style: solid;
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <div class="main-content">
+      <nav class="navbar">
+        <ul class="navbar-list">
+          <li class="navbar-item"><a href="../index.html" class="navbar-link">Home</a></li>
+          <li class="navbar-item"><a href="../resume.html" class="navbar-link">Resume</a></li>
+          <li class="navbar-item"><a href="../blog.html" class="navbar-link active">Blog</a></li>
+        </ul>
+      </nav>
+
+      <article class="blog-post-article active" data-page="blog-post">
+        <div class="blog-post-content-wrapper">
+
+          <header>
+            <h2 class="h2 article-title">AI Agents Are Overhyped — But Here’s Why They Still Matter</h2>
+          </header>
+
+          <section class="blog-post-content">
+
+            <figure class="blog-post-banner">
+              <img src="../assets/images/ai_agents_hype.png" alt="Abstract illustration of interconnected AI agents handling tasks." loading="lazy">
+            </figure>
+
+            <div class="blog-post-text">
+              <p>“AI agents” have become the new buzzword of the year. Every company suddenly has an agent framework, an agent platform, or an agent demo that promises to “change everything.” And yet, many of the hyped use cases feel surprisingly… insignificant.</p>
+
+              <p>Case in point: I recently watched a demo from a major tech company showing how AI agents could “revolutionise” food ordering. The chatbot asked what you felt like eating, discussed preferences, recommended dishes, and placed the order for you.</p>
+
+              <p>The problem?</p>
+
+              <p><strong>It’s still faster to tap twice on Deliveroo.</strong></p>
+
+              <p>This is the part of the hype cycle that’s frustrating: agentic AI is being showcased through gimmicks rather than real value. But beneath the noise, something important is happening. Companies like Amazon and OpenAI are quietly building agentic systems that solve actual problems—especially in e-commerce, operations, and decision-making.</p>
+
+              <p>To understand why this matters, we need to cut through the marketing and clarify what agentic AI really is.</p>
+
+              <h3>What AI Agents Really Are (and Why the Term Gets Misused)</h3>
+
+              <p>“AI agent” is used so loosely now that it’s in danger of becoming meaningless. So let’s anchor the definition.</p>
+
+              <p>An <strong>AI agent</strong> is a system that can:</p>
+
+              <ul>
+                <li><strong>Perceive</strong> its environment</li>
+                <li><strong>Decide</strong> what action to take</li>
+                <li><strong>Act</strong> within that environment</li>
+                <li><strong>Observe</strong> the result</li>
+                <li><strong>Repeat</strong> until a goal is reached</li>
+              </ul>
+
+              <p>In other words, an agent doesn’t just answer a prompt—it <strong>takes multiple steps toward a goal</strong> and adjusts its strategy along the way.</p>
+
+              <p>A chatbot is reactive. An agent is iterative.</p>
+
+              <h3>Workflows: The Backbone Everyone Overlooks</h3>
+
+              <p>If agents are the “brain,” workflows are the “skeleton.” They define:</p>
+
+              <ul>
+                <li>The steps required to complete a task</li>
+                <li>The order in which they run</li>
+                <li>Which tools the agent can use</li>
+                <li>When the agent should act—and when it should ask</li>
+              </ul>
+
+              <p>Most “agents” today are essentially <strong>structured workflows plus LLM reasoning</strong>. But that’s not a weakness—it’s the only way to build reliable automation at scale.</p>
+
+              <p>Real power comes not from magic autonomy but from <strong>flexibility layered on top of structure</strong>.</p>
+
+              <h3>Agents vs. Classic Automation: The Difference That Actually Matters</h3>
+
+              <p>Automation is not new. Banks use it. Enterprises use it. Every major website uses it. So what’s different?</p>
+
+              <h4>Classic Automation</h4>
+              <ul>
+                <li>Rigid</li>
+                <li>Rule-based</li>
+                <li>Brittle when conditions change</li>
+                <li>Excellent for repetitive, predictable tasks</li>
+              </ul>
+
+              <h4>AI Agents</h4>
+              <ul>
+                <li>Flexible</li>
+                <li>Can interpret ambiguous instructions</li>
+                <li>Can adapt mid-task—within guardrails</li>
+                <li>Strong at tasks involving reasoning or exploration</li>
+              </ul>
+
+              <p>Agents don’t replace workflows—they <strong>upgrade</strong> them.</p>
+
+              <h3>Where the Hype Goes Wrong (But the Tech Doesn’t)</h3>
+
+              <p>Right now, many demos focus on “fun” tasks: holiday planning, meal suggestions, to-do lists. Good for marketing. Not transformative.</p>
+
+              <p>The real impact of agents appears where humans lose time to <strong>complexity</strong>, not convenience.</p>
+
+              <p>And that leads to the awkward part no one likes to discuss.</p>
+
+              <h4>The Monetisation Problem</h4>
+
+              <p>Many big tech revenue models—especially Google’s, depend on:</p>
+
+              <ul>
+                <li>Search ads</li>
+                <li>Affiliate links</li>
+                <li>Marketplace commissions</li>
+                <li>Click-through behaviours</li>
+              </ul>
+
+              <p>But agentic AI collapses search, comparison, and decision-making into a single conversation. If an agent finds the best hotel, orders your groceries, or chooses the camera you should buy, you're no longer clicking links. You're not “searching.”</p>
+
+              <p>That’s a real business challenge. The old “10 blue links + ads” model doesn’t fit an AI that just gives you the answer.</p>
+
+              <p>That said, this doesn’t mean monetisation disappears. It will shift—from ads to <strong>conversational commerce, sponsored suggestions, and integrated marketplaces</strong>. But the transition will be messy.</p>
+
+              <p>And while the business models adapt, the agentic shift is already underway—quietly, in the places where value is undeniable.</p>
+
+              <h3>Where AI Agents Actually Matter Today</h3>
+
+              <h4>1. E-Commerce & Retail</h4>
+
+              <p>Right now, this is the strongest real-world use case.</p>
+
+              <ul>
+                <li>
+                  <strong>OpenAI’s Shopping Research</strong> turns ChatGPT into a product researcher. It asks follow-up questions, digs through product pages, reviews, and comparisons, and produces structured buyer’s guides instead of SEO fluff. Try it in
+                  <a href="https://openai.com/index/chatgpt-shopping-research/" target="_blank" rel="noopener noreferrer">ChatGPT (Shopping Research)</a>.
+                </li>
+                <li>
+                  <strong>Amazon’s Rufus</strong> is a conversational shopping assistant tested inside the Amazon app. It searches the catalogue, analyses specs and reviews, and guides you using natural language.
+                </li>
+              </ul>
+
+              <p>Shopping is inherently multi-step: defining needs, comparing specs, reading reviews, checking alternatives, evaluating trade-offs. Agents compress all of this into one interaction.</p>
+
+              <p><strong>Example:</strong> Instead of watching 20 YouTube headphone reviews, an agent can analyse ANC quality, durability complaints, price history, return rates, and user sentiment—and recommend the best fit for your lifestyle (gym, travel, office, etc.).</p>
+
+              <h4>2. Customer Support & Incident Triage</h4>
+
+              <p>Agents increasingly handle the messy first steps of ops and support:</p>
+
+              <ul>
+                <li>Investigating logs and recent errors</li>
+                <li>Retrieving deploy or configuration changes</li>
+                <li>Comparing against historical incidents</li>
+                <li>Suggesting likely root causes</li>
+                <li>Drafting RCA summaries</li>
+                <li>Escalating with full context attached</li>
+              </ul>
+
+              <p><strong>Example:</strong> A fintech company uses an agent to triage transaction anomalies. When an alert triggers, the agent fetches logs, checks previous outages, identifies false-positive patterns, and writes a summary for the on-call engineer—reducing alert fatigue and time-to-understanding.</p>
+
+              <h4>3. Internal Enterprise Automation</h4>
+
+              <p>This is where agentic AI will quietly reshape large chunks of knowledge work.</p>
+
+              <p>An internal “Ops Agent” might:</p>
+
+              <ul>
+                <li>Pull data from CRM, billing, analytics, and internal tools</li>
+                <li>Join and clean the data</li>
+                <li>Run analysis and detect anomalies</li>
+                <li>Prepare slide decks with charts</li>
+                <li>Draft summary emails with recommendations</li>
+                <li>Create Jira tickets automatically when needed</li>
+              </ul>
+
+              <p><strong>Example:</strong> Some companies now run agents that read customer feedback, classify sentiment, detect recurring issues, check if bugs already exist, and automatically create Jira tickets—with severity suggestions and supporting links.</p>
+
+              <p>This is <strong>workflow compression</strong>: tasks that once required coordination across several teams now run end-to-end through an agent.</p>
+
+              <h3>Key Terms People Should Actually Understand</h3>
+
+              <ul>
+                <li><strong>AI Agent</strong>: A system capable of taking multi-step actions toward a goal, adjusting based on feedback.</li>
+                <li><strong>Workflow</strong>: A structured, repeatable sequence of steps that makes the agent’s behaviour dependable.</li>
+                <li><strong>Tool / Action</strong>: APIs, search, SQL queries, code execution—these are the agent’s “hands.”</li>
+                <li><strong>Memory</strong>: Stores information across steps or sessions.</li>
+                <li><strong>Planner</strong>: Decides what to do next (usually powered by an LLM).</li>
+                <li><strong>Executor</strong>: Runs the code, calls APIs, and performs the action.</li>
+                <li><strong>Critic / Evaluator</strong>: Checks results for safety, accuracy, and goal alignment.</li>
+                <li><strong>Environment</strong>: The systems the agent interacts with—documents, APIs, apps, browsers, databases.</li>
+              </ul>
+
+              <h3>So Where Are We Now?</h3>
+
+              <p>We’re in an odd phase:</p>
+
+              <ul>
+                <li>The hype is too loud.</li>
+                <li>The demos are too shallow.</li>
+                <li>The expectations are unrealistic.</li>
+                <li>But the underlying capabilities are finally real.</li>
+              </ul>
+
+              <p>Most agents today look gimmicky—just like early mobile apps did. But behind the scenes, companies are building genuinely useful systems. A handful of these models will become the foundation for how we interact with software.</p>
+
+              <p>In five years, talking to software will feel as normal as clicking. In ten, many multi-step tasks will be handled by agents by default; not because it’s new, but because it’s efficient.</p>
+
+              <p>That’s the part that matters.</p>
+            </div>
+
+          </section>
+
+        </div>
+      </article>
+    </div>
+  </main>
+</body>
+</html>
