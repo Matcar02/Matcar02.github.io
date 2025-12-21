@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>It Works on My Machine... Now What? The Gap Between Tutorials and Production</title>
+
+  <link rel="shortcut icon" href="../assets/images/MC_logo.ico" type="image/x-icon">
+  <link rel="stylesheet" href="../assets/css/style.css"> <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LXQLH66J4S"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-LXQLH66J4S');
+  </script>
+
+  <style>
+    /* --- Fixes for Blog Post Content --- */
+    .blog-post-text ul {
+      list-style: disc !important;
+      list-style-position: outside !important;
+      margin-left: 0 !important;
+      padding-left: 40px !important;
+    }
+    .blog-post-text ol {
+      list-style: decimal !important;
+      list-style-position: outside !important;
+      margin-left: 0 !important;
+      padding-left: 40px !important;
+    }
+    .blog-post-text li {
+      display: list-item !important;
+      list-style: inherit !important;
+      padding-left: 5px;
+      margin-bottom: 0.8em;
+    }
+    .blog-post-text p a,
+    .blog-post-text li a {
+      display: inline !important;
+      width: auto !important;
+    }
+    /* --- End of Fixes --- */
+
+    /* --- Layout Overrides for Full Width Post --- */
+    .main-content {
+      margin-left: 0;
+      width: 100%;
+      max-width: none;
+      border-radius: 0;
+      box-shadow: none;
+      border: none;
+      padding: 0;
+    }
+    .blog-post-content-wrapper {
+      max-width: 900px;
+      margin-left: 0;
+      margin-right: 0;
+      padding: 0 clamp(20px, 5vw, 60px);
+    }
+    .navbar { }
+
+    /* --- General Blog Post Styling --- */
+    .blog-post-article {
+      padding-top: 80px;
+      padding-bottom: 50px;
+    }
+    .blog-post-content { color: var(--light-gray); }
+    .blog-post-text p,
+    .blog-post-text li {
+      line-height: 1.8;
+    }
+    .blog-post-text p {
+      margin-bottom: 1.3em;
+    }
+    .blog-post-text ul, .blog-post-text ol {
+      margin-bottom: 1.3em;
+    }
+    .blog-post-text strong {
+      color: var(--white-1);
+      font-weight: 600;
+    }
+    .blog-post-banner {
+      display: block;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 45px;
+      border-radius: 12px;
+      overflow: hidden;
+      background-color: var(--eerie-black-2);
+      border: 1px solid var(--jet);
+      box-shadow: var(--shadow-2);
+    }
+    .blog-post-banner img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+    .blog-post-article header .article-title {
+      text-align: left;
+      margin-bottom: 1.8em;
+      padding: 0;
+    }
+    .blog-post-content h3 {
+      margin-top: 2.8em;
+      margin-bottom: 1.2em;
+      color: var(--white-1);
+      border-bottom: 2px solid var(--orange-yellow-crayola);
+      padding-bottom: 10px;
+      font-size: 1.6rem;
+    }
+    .blog-post-content h4 {
+      margin-top: 2.2em;
+      margin-bottom: 1em;
+      color: var(--white-2);
+      font-weight: 600;
+      font-size: 1.25rem;
+      border-left: 3px solid var(--orange-yellow-crayola);
+      padding-left: 12px;
+    }
+    .blog-post-text h5 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--white-1);
+      margin-top: 1.8em;
+      margin-bottom: 0.8em;
+      text-transform: none;
+    }
+    .blog-post-content a {
+      color: var(--orange-yellow-crayola);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s ease, text-decoration 0.2s ease;
+    }
+    .blog-post-content a:hover {
+      color: hsl(45, 100%, 80%);
+      text-decoration: underline;
+    }
+    .blog-post-text p a,
+    .blog-post-text li a {
+      border-bottom: 1px dotted var(--orange-yellow-crayola);
+    }
+    .blog-post-text p a:hover,
+    .blog-post-text li a:hover {
+      border-bottom-style: solid;
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <div class="main-content">
+      <nav class="navbar">
+        <ul class="navbar-list">
+          <li class="navbar-item"><a href="../index.html" class="navbar-link">Home</a></li>
+          <li class="navbar-item"><a href="../resume.html" class="navbar-link">Resume</a></li>
+          <li class="navbar-item"><a href="../blog.html" class="navbar-link active">Blog</a></li>
+        </ul>
+      </nav>
+      <article class="blog-post-article active" data-page="blog-post">
+        <div class="blog-post-content-wrapper">
+          <header>
+            <h2 class="h2 article-title">It Works on My Machine... Now What? The Gap Between Tutorials and Production</h2>
+          </header>
+          <section class="blog-post-content">
+            <figure class="blog-post-banner">
+              <img src="../assets/images/meme_skiptests.jpg" alt="A close up of a computer screen with code, symbolizing the engineering reality." loading="lazy">
+            </figure>
+            <div class="blog-post-text">
+              <p>We all know the drill. You find a tutorial online, perhaps something titled "Build a Prediction Model in 10 Minutes." You download a pristine CSV file—maybe it's the famous Titanic dataset or housing prices. You load it into Jupyter, run <code>pd.read_csv()</code>, drop a couple of rows with missing values, import Scikit-Learn, and boom: 90% accuracy.</p>
+              
+              <p>For a long time, I thought <em>that</em> was the job. I thought being a Data Scientist or Engineer was about knowing which algorithm to pick or how to tune hyperparameters to squeeze out that extra 1% of performance.</p>
+              
+              <p>Then I started working on real production pipelines, and I realized I had been practicing on a driving range while the actual job was navigating a Formula 1 car through rush hour traffic. The math is often the easy part; the hard part is everything that happens <em>before</em> and <em>after</em> the model runs.</p>
+
+              <h3>1. Data Never Sleeps (And It's Never Clean)</h3>
+              <p>In tutorials, data is a static snapshot. It sits nicely in a file on your desktop.</p>
+              <p>In reality, data is a flowing river, and it's full of debris. I remember one specific week where I spent days debugging a pipeline not because the logic was wrong, but because of <strong>timezones</strong>. In the academic world, a date is just a date. In the corporate world, you have to ask: Is this UTC? Is it local time? Does it account for Daylight Saving Time? If I aggregate daily data, does "today" start at midnight London time or midnight New York time?</p>
+              <p>Real-world data breaks your code in ways you didn't think were possible. Columns change types unexpectedly. APIs go down. Files arrive empty. If your code assumes the "Happy Path" (where everything goes right), it will crash on day two. Learning to write defensive code that anticipates these failures was a massive shift in my mindset.</p>
+
+              <h3>2. The "It Works on My Machine" Trap</h3>
+              <p>This is the classic junior engineer catchphrase. I’ve been guilty of it, too. You write a script, it runs perfectly on your laptop, and you push it to the repository with a sense of accomplishment.</p>
+              <p>Then, the automated build fails. Or worse, it runs on the server but produces completely different results.</p>
+              <p>I quickly learned that <strong>your environment is part of your code</strong>. Relying on libraries installed globally on your laptop is a recipe for disaster. The discipline of managing dependencies—using <a href="https://docs.python.org/3/library/venv.html" target="_blank" rel="noopener">virtual environments</a>, locking versions in a <code>requirements.txt</code>, and understanding containerization (like <a href="https://docs.docker.com/get-started/" target="_blank" rel="noopener">Docker</a>)—is infinitely more valuable in a day-to-day job than knowing the math behind a Neural Network. If you can't reproduce your results reliably on a different machine, you haven't finished the job.</p>
+
+              <h3>3. Silent Failures are the Scariest</h3>
+              <p>In university, if your code is wrong, you usually get a big red error message. You fix the syntax, and you move on.</p>
+              <p>In production, the scariest bugs are the ones that make no noise at all. I recall working on a feature where a subtle logic error in how we sorted data didn't crash the pipeline. The code ran successfully, the "green checkmark" appeared, but the data flowing downstream was quietly, subtly wrong.</p>
+              <p>This is where the importance of <strong>testing</strong> clicked for me. Not just "running it to see if it works," but writing automated unit tests that enforce the logic. <em>"If I give this function unsorted data, does it definitely return it sorted?"</em> These tests are your safety net. They are the only reason you can sleep at night when your code is running at 3 AM.</p>
+
+              <h3>The Lesson: Fall in Love with the Pipeline</h3>
+              <p>The transition from "student" to "engineer" happened for me when I stopped obsessing over the complexity of the model and started obsessing over the robustness of the system.</p>
+              <p>Importing a library is easy. Building a system that handles messy data, runs reliably across different environments, and catches its own errors is hard. But that's also where the real value lies. It’s messy, it’s frustrating, and it’s rarely as clean as a Kaggle notebook—but solving these puzzles is what makes the technology actually work in the real world. I’ve learned to chase clarity over complexity, every time...</p>
+            </div>
+          </section>
+        </div>
+      </article>
+    </div>
+  </main>
+</body>
+</html>
