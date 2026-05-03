@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Code Is Cheap Now. Judgement Is Not</title>
+
+  <link rel="shortcut icon" href="../assets/images/MC_logo.ico" type="image/x-icon">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LXQLH66J4S"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-LXQLH66J4S');
+  </script>
+
+  <style>
+    .blog-post-text ul {
+      list-style: disc !important;
+      list-style-position: outside !important;
+      margin-left: 0 !important;
+      padding-left: 40px !important;
+    }
+
+    .blog-post-text ol {
+      list-style: decimal !important;
+      list-style-position: outside !important;
+      margin-left: 0 !important;
+      padding-left: 40px !important;
+    }
+
+    .blog-post-text li {
+      display: list-item !important;
+      list-style: inherit !important;
+      padding-left: 5px;
+      margin-bottom: 0.8em;
+    }
+
+    .blog-post-text p a,
+    .blog-post-text li a {
+      display: inline !important;
+      width: auto !important;
+    }
+
+    .main-content {
+      margin-left: 0;
+      width: 100%;
+      max-width: none;
+      border-radius: 0;
+      box-shadow: none;
+      border: none;
+      padding: 0;
+    }
+
+    .blog-post-content-wrapper {
+      max-width: 900px;
+      margin-left: 0;
+      margin-right: 0;
+      padding: 0 clamp(20px, 5vw, 60px);
+    }
+
+    .blog-post-article {
+      padding-top: 80px;
+      padding-bottom: 50px;
+    }
+
+    .blog-post-content {
+      color: var(--light-gray);
+    }
+
+    .blog-post-text p,
+    .blog-post-text li {
+      line-height: 1.8;
+    }
+
+    .blog-post-text p {
+      margin-bottom: 1.3em;
+    }
+
+    .blog-post-text ul,
+    .blog-post-text ol {
+      margin-bottom: 1.3em;
+    }
+
+    .blog-post-text strong {
+      color: var(--white-1);
+      font-weight: 600;
+    }
+
+    .blog-post-banner {
+      display: block;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 45px;
+      border-radius: 12px;
+      overflow: hidden;
+      background-color: var(--eerie-black-2);
+      border: 1px solid var(--jet);
+      box-shadow: var(--shadow-2);
+    }
+
+    .blog-post-banner img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+
+    .blog-post-article header .article-title {
+      text-align: left;
+      margin-bottom: 1.8em;
+      padding: 0;
+    }
+
+    .blog-post-content h3 {
+      margin-top: 2.8em;
+      margin-bottom: 1.2em;
+      color: var(--white-1);
+      border-bottom: 2px solid var(--orange-yellow-crayola);
+      padding-bottom: 10px;
+      font-size: 1.6rem;
+    }
+
+    .blog-post-content a {
+      color: var(--orange-yellow-crayola);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s ease, text-decoration 0.2s ease;
+    }
+
+    .blog-post-content a:hover {
+      color: hsl(45, 100%, 80%);
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <div class="main-content">
+      <nav class="navbar">
+        <ul class="navbar-list">
+          <li class="navbar-item"><a href="../index.html" class="navbar-link">Home</a></li>
+          <li class="navbar-item"><a href="../resume.html" class="navbar-link">Resume</a></li>
+          <li class="navbar-item"><a href="../blog.html" class="navbar-link active">Blog</a></li>
+        </ul>
+      </nav>
+
+      <article class="blog-post-article active" data-page="blog-post">
+        <div class="blog-post-content-wrapper">
+          <header>
+            <h2 class="h2 article-title">Code Is Cheap Now. Judgement Is Not</h2>
+          </header>
+
+          <section class="blog-post-content">
+            <figure class="blog-post-banner">
+              <img src="..\assets\images\vibecoding_vs_production.jfif"
+                alt="A developer working with an AI coding assistant, symbolizing the shift from vibe coding to real software engineering."
+                loading="lazy">
+            </figure>
+
+            <div class="blog-post-text">
+
+              <p>Everyone is talking about “vibe coding” — you open Cursor or your nice VSC (powered by a bunch of Claude Code commands on your terminal), describe what you want, let the AI generate half the app, accept a few diffs, tweak some UI, and suddenly you have something that looks like software.</p>
+
+              <p>And to be fair, this is magical. People who could barely code can now build working prototypes, good engineers can move twice as fast, and great engineers can operate at a completely different level.</p>
+
+              <p>But the gap is not closing. <strong>It is widening.</strong></p>
+
+              <p>That is the part most people are missing. AI is not making everyone equally good at software, it is making everyone faster at whatever level they already operate at.</p>
+
+              <p>If you have no fundamentals, AI makes you dangerous enough to ship something that looks real. If you are a decent engineer, AI makes you much more productive. But if you are already exceptional — if you understand systems, architecture, trade-offs, debugging, production, deployment, observability, security, reliability, and product constraints — AI becomes an insane multiplier.</p>
+
+              <p>The 2x engineer becomes better. The 10x engineer starts looking like a 100x engineer, and that changes everything.</p>
+
+              <h3>Vibe Coding Is Not Software Engineering</h3>
+
+              <p>Vibe coding is great for getting something started. It is great for prototypes, internal tools, landing pages, MVPs, experiments, demos, and quick automations.</p>
+
+              <p>But vibe coding is not the same as engineering, because real software engineering starts when the demo has to survive reality.</p>
+
+              <p>Can it handle real users? Can it fail gracefully? Can it be deployed safely? Can it be monitored? Can someone else understand it six months from now? Can you debug it at 2 a.m. when production is broken? Can you explain why the system behaves the way it does?</p>
+
+              <p>That is where the difference shows.</p>
+
+              <p>AI can generate code, but code is not the hard part anymore. The hard part is <strong>judgement</strong>.</p>
+
+              <h3>The Fundamentals Are Becoming More Important, Not Less</h3>
+
+              <p>A lot of people are entering software through AI-assisted coding, and that is not necessarily bad. More people building things is a good thing.</p>
+
+              <p>But there is a problem: many are skipping the boring fundamentals.</p>
+
+              <p>They can generate a React app, but they do not understand state properly. They can create an API, but they do not understand authentication, rate limiting, or data modelling. They can deploy something, but they do not understand CI/CD. They can connect a database, but they do not understand migrations, indexes, or backups. They can ship a feature, but they do not understand logging, monitoring, tracing, alerts, or rollback strategies.</p>
+
+              <p>They can ask the AI to “fix the bug”, but they cannot reason from first principles about what is actually happening.</p>
+
+              <p>And these are not optional details. These are the things that matter in production, the difference between building something that works on your laptop and building something that survives real usage.</p>
+
+              <p>The irony is that, because everyone now has access to the same AI tools, the fundamentals become even more valuable. Before, knowing how to code was the differentiator. Now, knowing what good code looks like is the differentiator.</p>
+
+              <h3>AI Will Not Kill Software, It Will Create More of It</h3>
+
+              <p>I do not buy the narrative that AI will replace SaaS, software companies, and engineering teams entirely. That argument sounds clever, but it misunderstands what software actually does.</p>
+
+              <p>AI agents need environments where they can operate. They need rules, interfaces, workflows, permissions, memory, APIs, data pipelines, integrations, audit logs, payment systems, user management, compliance layers, and monitoring.</p>
+
+              <p>In other words, they need software.</p>
+
+              <p>Agents do not remove the need for software, they increase it. The more capable AI becomes, the more software we will build around it.</p>
+
+              <p>Companies will need custom internal systems, more automation layers, more orchestration tools, more agentic workflows, more integrations between old systems and new AI interfaces, and more infrastructure to make AI reliable, measurable, and safe.</p>
+
+              <p>So no, software is not going away. Software is going to explode.</p>
+
+              <p>But the type of engineer who benefits from that explosion will change.</p>
+
+              <h3>There May Not Be More Traditional SWE Jobs</h3>
+
+              <p>This is the uncomfortable part. Software demand will grow, but that does not automatically mean traditional software engineering jobs will grow at the same rate.</p>
+
+              <p>Why? Because one strong engineer can now ship significantly more than before.</p>
+
+              <p>A small team with AI-native workflows can do what previously required a much larger team. A senior engineer with agents, coding assistants, automated testing, deployment pipelines, and strong product intuition can move incredibly fast.</p>
+
+              <p>So the total amount of software may increase massively, while the number of traditional SWE roles stays relatively stable.</p>
+
+              <p>The market will not necessarily reward people who can write code, it will reward people who can ship reliable systems. That distinction matters.</p>
+
+              <p>There will still be software engineering jobs, but the bar will move. The average engineer who only implements tickets may struggle, while the engineer who understands the full lifecycle of software — from idea to architecture to production to monitoring to iteration — becomes much more valuable.</p>
+
+              <h3>The Amount of Messy Software Will Explode</h3>
+
+              <p>There is another consequence nobody talks about enough. AI will create a lot of messy software.</p>
+
+              <p>Not because AI is useless. It is obviously useful. But because AI is very good at producing plausible code quickly, and plausible code is not the same as good software.</p>
+
+              <p>AI often makes assumptions. It over-engineers simple things. It under-engineers important things. It ignores business constraints. It invents abstractions too early. It writes code that works for the happy path but collapses under edge cases.</p>
+
+              <p>And because code is now cheaper to create, we will create much more of it.</p>
+
+              <p>That sounds good until you remember one thing: <strong>code is still a liability</strong>.</p>
+
+              <p>Maybe it is cheaper to write now, but it still has to be maintained. Every generated function, every integration, every service, every dependency, every cron job, every database table, every background worker becomes part of the system someone has to understand later.</p>
+
+              <p>Before AI, code was expensive to produce, which naturally limited how much software companies created. Now the production cost is collapsing, but the maintenance cost is not.</p>
+
+              <p>That means maintainability is going to become one of the biggest problems in modern software.</p>
+
+              <p>We are about to enter an era of code inflation: more code, more tools, more automations, more half-understood systems, more “it works, ship it” energy, and eventually, more mess.</p>
+
+              <h3>The Best Engineers Will Be the Most Judgemental</h3>
+
+              <p>The engineers who win in this new world will not be the ones who blindly accept AI output, they will be the ones who challenge it.</p>
+
+              <p>They will ask:</p>
+              <ul>
+                <li>Why is this abstraction needed?</li>
+                <li>What happens when this fails?</li>
+                <li>Is this actually the simplest solution?</li>
+                <li>What assumption is the model making?</li>
+                <li>How does this behave in production?</li>
+                <li>How do we monitor it?</li>
+                <li>How do we roll it back?</li>
+                <li>What is the long-term maintenance cost?</li>
+                <li>What breaks when usage grows 10x?</li>
+              </ul>
+
+              <p>That kind of judgement has always been important in software engineering, but now it becomes the main skill.</p>
+
+              <p>Because when everyone can generate code, the scarce skill is knowing which code should exist in the first place.</p>
+
+              <p>The best engineers will use AI aggressively, but they will not outsource their thinking to it. They will treat AI like a very fast junior engineer: useful, impressive, occasionally brilliant, often wrong, and always in need of review.</p>
+
+              <p>That is the mindset. AI should accelerate your execution, not replace your judgement.</p>
+
+              <h3>The Real Divide</h3>
+
+              <p>The future is not AI coders versus traditional engineers. The real divide is between people who can prompt software into existence and people who can engineer systems into production.</p>
+
+              <p>Vibe coding gets you started. Engineering keeps you alive.</p>
+
+              <p>And as AI makes it easier for everyone to build, the world will not need fewer great engineers, it will need more of them.</p>
+
+              <p>But “great” will mean something different. It will not mean memorising syntax, typing boilerplate faster than everyone else, or knowing every framework trend before Twitter does.</p>
+
+              <p>It will mean understanding systems, trade-offs, production, users, failure, and when not to build.</p>
+
+              <p>The people who combine AI-native speed with real engineering fundamentals will dominate.</p>
+
+              <p>Everyone else will just generate more mess.</p>
+
+            </div>
+          </section>
+        </div>
+      </article>
+    </div>
+  </main>
+</body>
+
+</html>
